@@ -1,0 +1,1001 @@
+run_id,label,year,total_debris,total_sats
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,0.0,8573.0,12042.0
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,0.5025125628140703,8184.043450111067,16473.808995823594
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,1.0050251256281406,8126.731004122874,21225.244987639344
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,1.507537688442211,8120.184588662518,26297.58741498788
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,2.0100502512562812,8112.769728542973,31806.749192435007
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,2.5125628140703515,8111.8106975685605,37571.09437368064
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,3.015075376884422,8113.308445351298,44091.5377568818
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,3.517587939698492,8120.832471057791,50490.289259799916
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,4.0201005025125625,8139.601635582821,55097.061822069474
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,4.522613065326633,8145.535760461791,59583.0504976154
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,5.025125628140703,8155.002422940133,63990.253907964754
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,5.527638190954773,8188.034016850642,68725.29223983378
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,6.030150753768844,8224.975155390923,73326.59941446093
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,6.532663316582914,8270.190632617529,77892.80180149479
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,7.035175879396984,8311.508166258856,82408.9437300853
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,7.537688442211055,8353.358733574454,86870.37734958583
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,8.040201005025125,8406.803841753273,91290.51134668766
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,8.542713567839195,8461.241698199257,95702.51383020761
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,9.045226130653266,8527.68280778865,100114.0356383213
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,9.547738693467336,8613.141459518587,104458.44267946668
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,10.050251256281406,8708.445501865894,108703.73838991337
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,10.552763819095476,8800.700781942669,112942.13621893946
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,11.055276381909547,8877.509846799487,117212.68244591396
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,11.557788944723617,8976.870417574084,121249.72287698417
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,12.060301507537687,9086.655376162584,125243.93506563762
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,12.562814070351758,9205.136146474799,129071.72828096399
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,13.065326633165828,9307.250458539924,132865.57848794563
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,13.567839195979898,9428.515353432213,136517.69742504245
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,14.070351758793969,9543.178004938254,140054.41258295145
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,14.572864321608039,9677.540436160869,143509.89652819023
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,15.07537688442211,9822.121656371544,146855.2995614411
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,15.57788944723618,9963.975148014342,150123.4009870429
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,16.08040201005025,10121.881587264605,153581.87546805706
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,16.58291457286432,10281.286308309345,156828.11250724984
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,17.08542713567839,10447.181043004273,159979.30279636773
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,17.587939698492463,10597.860882604013,162963.08436147223
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,18.09045226130653,10785.69961628832,165804.99930567737
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,18.5929648241206,10961.495611281167,168560.81841400638
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,19.09547738693467,11134.975166897872,171230.0951866065
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,19.597989949748744,11323.674575145618,173764.5552022511
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,20.100502512562812,11513.938249589732,176229.23790761665
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,20.60301507537688,11713.872593017162,178584.51160079407
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,21.105527638190953,11894.462232553004,180766.61882254356
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,21.608040201005025,12101.000206415101,182903.8248670487
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,22.110552763819094,12289.913421314865,184990.71971730486
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,22.613065326633162,12497.664848402579,186971.78256048457
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,23.115577889447234,12716.167836579267,188841.75988119887
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,23.618090452261306,12941.168133437684,190650.32621046898
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,24.120603015075375,13152.61169098452,192326.59126807362
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,24.623115577889443,13368.82230531337,193983.3963342713
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,25.125628140703515,13573.720646967085,195573.6804258023
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,25.628140703517587,13800.973397065607,197109.15769172995
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,26.130653266331656,14038.902152167842,198603.32776873076
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,26.633165829145725,14246.178957535882,199994.36172676936
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,27.135678391959797,14467.978398556239,201354.53866634314
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,27.63819095477387,14700.751961620006,202633.53523001642
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,28.140703517587937,14954.688416662791,203933.57408039153
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,28.643216080402006,15191.227144024695,205109.656425423
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,29.145728643216078,15429.827101839175,206246.5878774756
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,29.64824120603015,15667.649002634094,207282.02021097703
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,30.15075376884422,15895.381982088124,208369.7137289392
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,30.653266331658287,16139.27965837044,209408.19544274072
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,31.15577889447236,16402.493449374553,210341.02880034802
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,31.65829145728643,16660.121489911326,211276.04746811325
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,32.1608040201005,16902.84570918613,212192.17963112606
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,32.66331658291457,17142.15605828916,213021.9362467893
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,33.16582914572864,17378.982798061224,213813.68580492184
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,33.66834170854271,17615.94983239434,214623.99828702083
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,34.17085427135678,17869.42201328564,215401.08099119764
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,34.67336683417085,18134.907795178813,216143.10586669372
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,35.175879396984925,18382.688497737392,216813.94464566588
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,35.678391959798994,18614.940460849237,217491.92261889344
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,36.18090452261306,18878.96023679079,218139.47778541793
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,36.68341708542713,19143.567645340234,218730.53217456472
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,37.1859296482412,19409.719637316313,219310.8767143645
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,37.688442211055275,19663.90325530761,219872.72362500915
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,38.19095477386934,19913.440834320376,220430.7251500832
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,38.69346733668341,20165.87785110045,220917.8810384844
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,39.19597989949749,20411.268008526695,221425.0738113045
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,39.698492462311556,20668.482731592587,221922.0315845954
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,40.201005025125625,20939.2528449264,222419.1664851007
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,40.70351758793969,21211.36845569718,222796.8978132081
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,41.20603015075376,21474.814667192237,223196.655391397
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,41.70854271356784,21747.32393073623,223592.0258345868
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,42.211055276381906,22013.87140545626,224001.64588540207
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,42.713567839195974,22283.366368437204,224344.34632440165
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,43.21608040201005,22549.77329499606,224682.34745895577
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,43.71859296482412,22808.359267337884,225033.57969744835
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,44.22110552763819,23077.84002179418,225355.84148682453
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,44.723618090452256,23344.488801115087,225697.9002746093
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,45.226130653266324,23607.758724514282,225990.80853894603
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,45.7286432160804,23886.331492501657,226277.82832606934
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,46.23115577889447,24161.78019206094,226602.28218087804
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,46.73366834170854,24430.26719406983,226848.64081646537
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,47.23618090452261,24712.78768671763,227157.33198000366
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,47.73869346733668,24989.972607494794,227398.77266951159
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,48.24120603015075,25242.062412384337,227597.2001510535
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,48.74371859296482,25519.11591811043,227864.5930712491
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,49.24623115577889,25809.01397611366,228090.18564195774
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,49.74874371859296,26083.36449745536,228282.6034310352
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,50.25125628140703,26356.426352705435,228548.0961331953
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,50.7537688442211,26493.12081494681,219240.93881048824
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,51.256281407035175,26613.937293461713,210256.39795540896
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,51.75879396984924,26724.48876956747,201632.36747268372
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,52.26130653266331,26825.547177444307,193362.8316786231
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,52.76381909547738,26917.986792145424,185433.1583977867
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,53.26633165829145,27003.003922866992,177828.6203903664
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,53.768844221105525,27081.736987309017,170535.8903715097
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,54.27135678391959,27155.09260255489,163542.19508040856
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,54.77386934673366,27223.836767811805,156835.18519007802
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,55.27638190954774,27288.50878526671,150402.29700082596
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,55.778894472361806,27349.352258095372,144234.80825223893
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,56.281407035175874,27407.07622950465,138296.77473995028
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,56.78391959798994,27461.33781470013,132605.64664844988
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,57.28643216080401,27512.116589517656,127162.46340975247
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,57.78894472361809,27560.091283840713,121924.22861001261
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,58.291457286432156,27605.082750441485,116902.29092936649
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,58.793969849246224,27646.997122824374,112102.59665482653
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,59.2964824120603,27686.214315284822,107497.9421359655
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,59.79899497487437,27722.899107355704,103076.52838321312
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,60.30150753768844,27757.077100921008,98836.52218126146
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,60.804020100502505,27788.832154902655,94774.55949070367
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,61.306532663316574,27818.268354221662,90884.25133979031
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,61.80904522613065,27845.514938866523,87155.44664954598
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,62.31155778894472,27870.684340519107,83580.50813475931
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,62.81407035175879,27893.888990861302,80151.79851021875
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,63.31658291457286,27915.260649825083,76865.48774217478
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,63.81909547738693,27934.939017670855,73719.30987157258
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,64.321608040201,27953.02064220095,70702.49882900078
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,64.82412060301507,27969.622606820547,67808.33361914543
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,65.32663316582914,27984.861994934803,65030.09324669287
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,65.82914572864321,27998.847465105413,62363.78673080394
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,66.33165829145727,28011.661277776024,59813.97722514539
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,66.83417085427135,28023.438334466595,57368.16989286335
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,67.33668341708542,28034.291752818834,55020.92881790492
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,67.83919597989949,28044.334650474455,52766.81808421715
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,68.34170854271356,28053.675022297975,50600.664813798554
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,68.84422110552764,28062.211373099366,48528.052765843444
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,69.3467336683417,28070.12528149191,46540.03077468543
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,69.84924623115577,28077.487593492202,44633.33343559264
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,70.35175879396985,28084.36461817918,42804.928300917985
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,70.85427135678391,28090.818127694132,41052.01588009887
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,71.35678391959799,28096.814275567132,39369.171219218864
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,71.85929648241205,28102.418333801288,37754.4553440675
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,72.36180904522612,28107.674180331836,36205.6332094097
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,72.8643216080402,28112.606801919752,34720.25224741298
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,73.36683417085426,28117.23497420034,33296.04030620993
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,73.86934673366834,28121.57126168335,31930.905649897937
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,74.3718592964824,28125.621300566138,30619.991893572314
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,74.87437185929647,28129.385497939486,29362.655644130617
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,75.37688442211055,28132.857683385773,28156.929405343435
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,75.87939698492461,28136.02545435863,27000.9398495113
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,76.38190954773869,28138.87018631365,25892.949418187996
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,76.88442211055276,28141.386650046043,24831.100016123182
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,77.38693467336682,28143.727985890073,23811.51888240032
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,77.8894472361809,28145.783577822483,22833.83378450056
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,78.39195979899498,28147.54222687081,21896.42805514883
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,78.89447236180904,28148.989615686107,20997.78024663065
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,79.39698492462311,28150.10830854299,20136.46413079206
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,79.89949748743717,28150.920020776797,19310.802502347753
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,80.40201005025125,28151.54644458119,18518.369001207026
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,80.90452261306532,28151.9023960216,17758.501311037682
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,81.40703517587939,28151.989356309547,17029.896986774736
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,81.90954773869346,28151.808663344666,16331.32443643126
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,82.41206030150752,28151.361511714626,15661.622921098568
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,82.9145728643216,28150.659604786488,15019.42356968054
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,83.41708542713567,28149.721282853177,14403.250785278811
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,83.91959798994974,28148.540224358512,13812.341980662584
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,84.42211055276381,28147.12205544304,13245.688750222344
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,84.92462311557789,28145.472727076565,12702.341280502638
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,85.42713567839195,28143.598515058085,12181.40835020198
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,85.92964824120602,28141.468637864135,11681.65150947078
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,86.4321608040201,28139.066781349502,11202.04443215009
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,86.93467336683416,28136.416374602642,10742.047310499302
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,87.43718592964824,28133.515971157707,10300.90535352626
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,87.9396984924623,28130.363723402334,9877.91448119875
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,88.44221105527637,28126.957382577602,9472.42132444436
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,88.94472361809045,28123.294298778077,9083.82322515057
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,89.44723618090451,28119.35221161684,8710.880508300515
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,89.94974874371859,28115.121366710246,8352.866308426674
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,90.45226130653265,28110.603464657455,8009.5289412358425
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,90.95477386934672,28105.790234306784,7680.3247889825825
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,91.4572864321608,28100.672682082783,7364.749442594575
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,91.95979899497486,28095.241091986292,7062.337701672595
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,92.46231155778894,28089.485025594393,6772.663574490498
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,92.96482412060301,28083.425271960157,6494.5660396711455
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,93.46733668341707,28077.053084278734,6227.621517218657
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,93.96984924623115,28070.350220909728,5971.658216678157
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,94.47236180904522,28063.309230832016,5726.264561992237
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,94.97487437185929,28055.92240787173,5491.056862451627
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,95.47738693467336,28048.18179070224,5265.679312695175
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,95.97989949748742,28040.079162844137,5049.803992709911
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,96.4824120603015,28031.639608689533,4842.523759271257
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,96.98492462311557,28022.851487405118,4643.6191851520425
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,97.48743718592964,28013.702948339775,4452.897908256174
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,97.98994974874371,28004.19025042102,4270.044113882357
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,98.49246231155777,27994.309831794613,4094.7620138692196
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,98.99497487437185,27984.05830982457,3926.775846595264
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,99.49748743718592,27973.432481093172,3765.829876978909
+cnc_med_g1.0_exp_responsive,C&C Medium — baseline governance,100.0,27962.434145048544,3611.5242004339675
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,0.0,8573.0,12042.0
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,0.5025125628140703,8159.796373807279,15675.975638935846
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,1.0050251256281406,8088.635424218002,19450.12373300546
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,1.507537688442211,8067.8361751561515,23370.91117437867
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,2.0100502512562812,8045.05031291748,27537.97645900616
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,2.5125628140703515,8027.957220483271,31770.251872271114
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,3.015075376884422,8012.3414251117,36562.65659477347
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,3.517587939698492,8002.14734706918,41031.04905252038
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,4.0201005025125625,8002.841864839202,43590.50354498713
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,4.522613065326633,7989.714064151858,45977.47108260438
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,5.025125628140703,7979.022386189805,48236.68919959997
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,5.527638190954773,7989.949224390581,50778.596982030256
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,6.030150753768844,8002.835946292494,53130.69176037458
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,6.532663316582914,8021.848017214065,55413.28568331953
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,7.035175879396984,8034.693167080477,57607.148506177764
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,7.537688442211055,8045.8711693805635,59716.27152825429
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,8.040201005025125,8066.288682626555,61761.43665031691
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,8.542713567839195,8085.12134311478,63776.935393660555
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,9.045226130653266,8113.160209462949,65778.53408285299
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,9.547738693467336,8157.419709043328,67696.67933304768
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,10.050251256281406,8208.52577214202,69513.46671235505
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,10.552763819095476,8253.801986301625,71315.08314776399
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,11.055276381909547,8280.008368141227,73146.03655605402
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,11.557788944723617,8325.644945214133,74745.24198552701
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,12.060301507537687,8379.079214667914,76311.06402439432
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,12.562814070351758,8438.202121830083,77721.5320979771
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,13.065326633165828,8477.996719424074,79117.88121617745
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,13.567839195979898,8533.80966835453,80394.25239055985
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,14.070351758793969,8579.915836055312,81582.55107832671
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,14.572864321608039,8642.592620575258,82718.08242884294
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,15.07537688442211,8712.526095979343,83776.38983863262
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,15.57788944723618,8776.495901377057,84794.35416474969
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,16.08040201005025,8853.245383460599,86025.03249730977
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,16.58291457286432,8927.916508436327,87072.02785305107
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,17.08542713567839,9005.490318051154,88055.52308941574
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,17.587939698492463,9064.773483874198,88908.5479307616
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,18.09045226130653,9158.049687207698,89661.08460478371
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,18.5929648241206,9236.266084307177,90370.26738683273
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,19.09547738693467,9308.958237821971,91038.52038869206
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,19.597989949748744,9394.123963115497,91616.82690631557
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,20.100502512562812,9477.844869253568,92173.43938386683
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,20.60301507537688,9568.381247596939,92670.23612592765
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,21.105527638190953,9637.014510771187,93044.00786303375
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,21.608040201005025,9729.670505044338,93426.96050539607
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,22.110552763819094,9801.531007930895,93809.49577918205
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,22.613065326633162,9889.968966864388,94135.76209687794
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,23.115577889447234,9986.8882170068,94400.40884939829
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,23.618090452261306,10088.178371217575,94654.7568115163
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,24.120603015075375,10173.872347035762,94828.78093969103
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,24.623115577889443,10262.348845827193,95033.52487025662
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,25.125628140703515,10337.514304426128,95219.95025878816
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,25.628140703517587,10433.144534115128,95399.58139635548
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,26.130653266331656,10537.8286191235,95582.28169834561
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,26.633165829145725,10610.077355811383,95706.83766254995
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,27.135678391959797,10695.071148746792,95845.39360344445
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,27.63819095477387,10789.438077728568,95948.52370017802
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,28.140703517587937,10903.326245481654,96110.13355509013
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,28.643216080402006,10998.368577235946,96187.9101032307
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,29.145728643216078,11094.076593159713,96267.6935976374
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,29.64824120603015,11187.638796895466,96286.63761491283
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,30.15075376884422,11270.194777810513,96392.86110195844
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,30.653266331658287,11367.34975004334,96486.29685346049
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,31.15577889447236,11482.42326241313,96510.36790651079
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,31.65829145728643,11590.73240923803,96570.8405340453
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,32.1608040201005,11682.818181067214,96641.75849408282
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,32.66331658291457,11770.326576895211,96661.17458888542
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,33.16582914572864,11854.488121978553,96677.81558954113
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,33.66834170854271,11938.088969564327,96740.59537831463
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,34.17085427135678,12036.963724108286,96796.09552545317
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,34.67336683417085,12146.799665362221,96844.3078860982
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,35.175879396984925,12238.046938450643,96847.16305022921
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,35.678391959798994,12312.846699565707,96883.82320088164
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,36.18090452261306,12418.48333134228,96915.06525068509
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,36.68341708542713,12523.981687473439,96912.23869330111
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,37.1859296482412,12629.670328125658,96924.37455504343
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,37.688442211055275,12722.969894100814,96940.37866879164
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,38.19095477386934,12810.9481979625,96973.72362990827
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,38.69346733668341,12901.255696402031,96955.44260928097
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,39.19597989949749,12983.169184656097,96981.2769804245
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,39.698492462311556,13074.71322463681,97011.30810850924
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,40.201005025125625,13181.206154609245,97059.65978152971
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,40.70351758793969,13288.307238246423,97007.8775656413
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,41.20603015075376,13385.945806875437,96996.88823834885
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,41.70854271356784,13491.900214013764,96998.347537019
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,42.211055276381906,13591.557375540508,97027.95598656214
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,42.713567839195974,13693.651894742767,97006.62732927133
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,43.21608040201005,13791.566280060875,96998.01415463706
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,43.71859296482412,13881.26349899059,97016.2722901157
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,44.22110552763819,13981.29987996077,97016.21192012037
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,44.723618090452256,14078.34676185021,97050.64037051602
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,45.226130653266324,14170.84906864076,97047.1397001165
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,45.7286432160804,14278.034724496274,97048.51002177202
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,46.23115577889447,14381.500447084029,97101.19177147756
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,46.73366834170854,14477.631098601167,97083.7261750391
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,47.23618090452261,14587.592046166723,97139.42035910323
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,47.73869346733668,14691.372116540393,97135.86733561795
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,48.24120603015075,14769.797964507914,97102.0390325715
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,48.74371859296482,14872.214119061111,97144.28333992034
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,49.24623115577889,14987.001705202034,97152.66951311962
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,49.74874371859296,15085.858659747053,97137.98259876309
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,50.25125628140703,15182.696787323097,97183.11353625715
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,50.7537688442211,15150.907755606164,87943.6937311451
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,51.256281407035175,15112.1778856977,79538.33880314056
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,51.75879396984924,15069.71531793361,71931.25084929678
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,52.26130653266331,15023.71723628582,65053.59747447936
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,52.76381909547738,14974.983500189866,58828.48999738444
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,53.26633165829145,14924.448556760191,53196.16730558603
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,53.768844221105525,14872.892378994293,48103.12450964701
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,54.27135678391959,14821.208511229623,43475.33651045356
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,54.77386934673366,14769.45599867189,39305.47556203448
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,55.27638190954774,14718.306546691618,35516.297494689614
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,55.778894472361806,14667.649607366931,32114.07322577968
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,56.281407035175874,14617.9034281518,29028.28813346484
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,56.78391959798994,14568.983405164665,26246.036895751233
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,57.28643216080401,14520.943317763873,23739.07142757261
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,57.78894472361809,14473.992331366879,21471.125165456368
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,58.291457286432156,14427.993444779477,19424.658673600727
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,58.793969849246224,14382.843838271303,17580.258661698335
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,59.2964824120603,14338.673362618185,15905.756660843574
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,59.79899497487437,14295.380873349968,14390.795046305715
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,60.30150753768844,14252.857341657138,13026.029407711592
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,60.804020100502505,14211.129324256217,11784.69127477513
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,61.306532663316574,14170.181440697403,10657.002427158086
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,61.80904522613065,14130.01028464998,9640.093919111321
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,62.31155778894472,14090.594357572494,8720.657285206604
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,62.81407035175879,14051.949579081709,7889.139431520029
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,63.31658291457286,14014.123118724017,7134.81673541628
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,63.81909547738693,13977.130779963723,6452.695390874156
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,64.321608040201,13940.992424928605,5835.7028144885935
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,64.82412060301507,13905.722287778259,5276.74225787908
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,65.32663316582914,13871.36559739619,4771.672687389105
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,65.82914572864321,13837.916352658613,4315.062316833585
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,66.33165829145727,13805.351738303965,3901.69693917644
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,66.83417085427135,13773.691942633597,3528.319858983243
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,67.33668341708542,13742.918724941412,3190.788366219314
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,67.83919597989949,13713.006246208697,2885.332914145169
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,68.34170854271356,13683.93464397097,2609.350315646735
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,68.84422110552764,13655.692950817152,2359.7606324258463
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,69.3467336683417,13628.264359103101,2133.896385022267
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,69.84924623115577,13601.616716404122,1929.7782939675935
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,70.35175879396985,13575.743274184035,1745.0325968632817
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,70.85427135678391,13550.627489571383,1577.7849063985554
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,71.35678391959799,13526.243104668534,1426.6582497104139
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,71.85929648241205,13502.570212858105,1290.05566807318
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,72.36180904522612,13479.590149941454,1166.2646294151377
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,72.8643216080402,13457.28048907754,1054.4307312857554
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,73.36683417085426,13435.618732559724,953.5374006503963
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,73.86934673366834,13414.576387784547,862.0473456374019
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,74.3718592964824,13394.13041846174,779.3864260552981
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,74.87437185929647,13374.254791833595,704.848325303642
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,75.37688442211055,13354.92633015593,637.3097363426868
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,75.87939698492461,13336.11789891684,576.2416834017349
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,76.38190954773869,13317.802434331146,521.1115737461059
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,76.88442211055276,13299.959755065214,471.2503268924257
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,77.38693467336682,13282.568403015495,426.1051150198255
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,77.8894472361809,13265.602936201616,385.3166335281085
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,78.39195979899498,13249.042541181774,348.46363703632085
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,78.89447236180904,13232.870357314507,315.07602189138333
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,79.39698492462311,13217.065317182645,284.9029366016656
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,79.89949748743717,13201.608812586335,257.652351464696
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,80.40201005025125,13186.482383599268,232.95757483664613
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,80.90452261306532,13171.669170583395,210.6391813929873
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,81.40703517587939,13157.152562820982,190.49363080159463
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,81.90954773869346,13142.914397236207,172.23478429010905
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,82.41206030150752,13128.939532926503,155.73211267409974
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,82.9145728643216,13115.21260809494,140.84106728536844
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,83.41708542713567,13101.718611783508,127.3447274903331
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,83.91959798994974,13088.443295179022,115.14468429291166
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,84.42211055276381,13075.3728934795,104.13196086023649
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,84.92462311557789,13062.494792911973,94.16785557189041
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,85.42713567839195,13049.796676211394,85.15450568687223
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,85.92964824120602,13037.26694099452,77.00033934300633
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,86.4321608040201,13024.894075561933,69.62928934202326
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,86.93467336683416,13012.667373522087,62.9683184417254
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,87.43718592964824,13000.576898073115,56.94680627535257
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,87.9396984924623,12988.612737979416,51.504017947185005
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,88.44221105527637,12976.765149091836,46.585438918598555
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,88.94472361809045,12965.025273967447,42.13724216048983
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,89.44723618090451,12953.384384864905,38.112514107453556
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,89.94974874371859,12941.834021711973,34.47635120878629
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,90.45226130653265,12930.366024712832,31.186677332289875
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,90.95477386934672,12918.972481470239,28.20786100269053
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,91.4572864321608,12907.646255221513,25.51528764163985
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,91.95979899497486,12896.37995395196,23.078922704073246
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,92.46231155778894,12885.166597246334,20.873718719445723
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,92.96482412060301,12873.999687497639,18.879008672254326
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,93.46733668341707,12862.872840179069,17.07475972366151
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,93.96984924623115,12851.779921820178,15.442630043887142
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,94.47236180904522,12840.714995675986,13.96670662075796
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,94.97487437185929,12829.672336036489,12.632429851974535
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,95.47738693467336,12818.646470823887,11.42566759640572
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,95.97989949748742,12807.632049669766,10.334633616951788
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,96.4824120603015,12796.623833271533,9.349942742129228
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,96.98492462311557,12785.616828690881,8.459783538194522
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,97.48743718592964,12774.606137943909,7.653847794660329
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,97.98994974874371,12763.5870155185,6.92387618968285
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,98.49246231155777,12752.55486673785,6.264160933939052
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,98.99497487437185,12741.505149932545,5.666653796806564
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,99.49748743718592,12730.433450438493,5.125125130076366
+cnc_high_g1.0_exp_responsive,C&C High — strong disposal rules,100.0,12719.335535307018,4.634909867207031
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),0.0,8573.0,12042.0
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),0.5025125628140703,8146.123199654357,13746.540767616018
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),1.0050251256281406,8067.436226061538,15595.470736204437
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),1.507537688442211,8039.394692501173,17587.64180887855
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),2.0100502512562812,8009.434202954821,19775.635754548115
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),2.5125628140703515,7985.161126449485,22065.48237357495
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),3.015075376884422,7962.329637959049,24711.49358034345
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),3.517587939698492,7945.049886248212,27268.91606057358
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),4.0201005025125625,7939.289708914456,28914.077822026054
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),4.522613065326633,7919.540314821448,30491.822353306452
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),5.025125628140703,7901.6913613384895,32025.57327776132
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),5.527638190954773,7904.566510688578,33717.31259872305
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),6.030150753768844,7908.327917025889,35336.32147070684
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),6.532663316582914,7917.142819996698,36935.48425863191
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),7.035175879396984,7918.740104636554,38503.447939801204
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),7.537688442211055,7917.656371228622,40039.1785142086
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),8.040201005025125,7924.809485035668,41551.46818000888
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),8.542713567839195,7929.334318885144,43055.08535996334
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),9.045226130653266,7941.959365726385,44562.89225064072
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),9.547738693467336,7969.6316095265865,46032.09829116596
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),10.050251256281406,8003.267498717629,47452.62927307179
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),10.552763819095476,8030.388347988146,48864.95235667777
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),11.055276381909547,8037.017968057442,50294.40195766287
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),11.557788944723617,8062.772975701859,51608.46187772116
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),12.060301507537687,8095.061476827014,52903.727938827724
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),12.562814070351758,8132.245199131541,54118.72613386045
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),13.065326633165828,8149.2057321139655,55320.42599018134
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),13.567839195979898,8181.5956793520545,56456.02110298213
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),14.070351758793969,8203.723695005,57539.80807810976
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),14.572864321608039,8241.782169959823,58588.67482658858
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),15.07537688442211,8286.49427261789,59589.557806417964
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),15.57788944723618,8324.626422411096,60558.81832529245
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),16.08040201005025,8374.628162160316,61629.09201034655
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),16.58291457286432,8421.733572032332,62600.17346487913
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),17.08542713567839,8471.121594259996,63530.945402718244
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),17.587939698492463,8501.568906030776,64386.724327638
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),18.09045226130653,8565.404654056016,65180.308341643824
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),18.5929648241206,8613.998134445295,65940.22717521145
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),19.09547738693467,8656.627935024118,66667.6342435029
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),19.597989949748744,8711.502528199686,67337.3352053496
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),20.100502512562812,8764.581412453826,67982.77845758143
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),20.60301507537688,8824.177050220662,68586.05558844101
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),21.105527638190953,8862.060190954082,69112.94021105894
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),21.608040201005025,8923.739641098788,69632.12766528073
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),22.110552763819094,8964.519981606973,70138.22993462547
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),22.613065326633162,9021.913373371066,70603.798755062
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),23.115577889447234,9087.714019775507,71025.0294797898
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),23.618090452261306,9157.980680173565,71428.2592879811
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),24.120603015075375,9212.840396312817,71778.57797413233
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),24.623115577889443,9270.515808240372,72131.43072412624
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),25.125628140703515,9314.922794945556,72463.46179755598
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),25.628140703517587,9379.832937006908,72781.03054752988
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),26.130653266331656,9453.841113645016,73089.56622205325
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),26.633165829145725,9495.65773022864,73358.6707875025
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),27.135678391959797,9550.166057276681,73624.47483409513
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),27.63819095477387,9613.462253999958,73863.79762836077
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),28.140703517587937,9696.828609329568,74122.04043971476
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),28.643216080402006,9761.451379151687,74330.06071605305
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),29.145728643216078,9826.922153932797,74530.24272221241
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),29.64824120603015,9890.495353071468,74690.73163716837
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),30.15075376884422,9942.670857464098,74888.1209196347
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),30.653266331658287,10009.710583061762,75071.07137372806
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),31.15577889447236,10094.88057415533,75212.08258352127
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),31.65829145728643,10173.375629414277,75364.35450815296
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),32.1608040201005,10235.73195769764,75517.06683373502
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),32.66331658291457,10293.690826232927,75636.252058294
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),33.16582914572864,10348.320246455132,75746.00336764433
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),33.66834170854271,10402.00823805586,75875.02785505717
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),34.17085427135678,10471.378662128058,75995.69965694932
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),34.67336683417085,10551.645241027887,76108.00908660855
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),35.175879396984925,10613.503178545192,76192.71084375985
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),35.678391959798994,10659.055159005113,76289.4538017747
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),36.18090452261306,10735.350839108185,76379.36262337446
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),36.68341708542713,10811.444940954712,76448.03776078169
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),37.1859296482412,10887.909095420067,76520.12138310804
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),37.688442211055275,10951.94786312366,76590.28830099394
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),38.19095477386934,11010.516820061508,76665.85929316362
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),38.69346733668341,11071.109540034406,76713.53332687059
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),39.19597989949749,11123.440574848673,76778.76857469662
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),39.698492462311556,11186.139034926671,76843.10286979344
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),40.201005025125625,11262.938321338366,76913.84802643144
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),40.70351758793969,11340.451026046074,76932.90847596369
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),41.20603015075376,11408.609680693684,76968.28167165164
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),41.70854271356784,11485.191288499076,77007.32845617911
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),42.211055276381906,11555.383039241151,77059.52971393548
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),42.713567839195974,11627.995904209842,77083.10748184091
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),43.21608040201005,11696.869711811249,77110.39051946437
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),43.71859296482412,11757.425259859596,77149.45694761554
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),44.22110552763819,11828.393536600392,77177.63606001508
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),44.723618090452256,11896.316446161847,77221.5320713831
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),45.226130653266324,11959.60676589661,77245.28395134273
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),45.7286432160804,12037.567611035436,77269.92048396076
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),46.23115577889447,12111.858353923217,77318.94005427678
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),46.73366834170854,12178.75251678658,77331.89497902745
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),47.23618090452261,12258.643523444483,77378.97202621549
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),47.73869346733668,12333.26622757737,77397.42939108405
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),48.24120603015075,12382.127965384818,77398.41186947409
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),48.74371859296482,12455.224314270694,77436.36568645718
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),49.24623115577889,12541.016655407588,77457.6742888334
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),49.74874371859296,12610.48827939954,77466.19722424036
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),50.25125628140703,12678.16268852304,77513.47152205766
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),50.7537688442211,12624.61644594586,72802.36771903107
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),51.256281407035175,12571.869236869836,68369.61167413936
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),51.75879396984924,12519.842096206266,64206.931320139636
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),52.26130653266331,12467.507766388493,60297.93463140223
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),52.76381909547738,12414.933130484089,56626.933924076315
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),53.26633165829145,12362.611378859732,53179.47159840495
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),53.768844221105525,12310.92339307097,49941.88774207638
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),54.27135678391959,12260.17587819844,46900.878729440716
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),54.77386934673366,12210.580494332138,44041.12553921326
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),55.27638190954774,12162.259356289724,41347.78811092607
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),55.778894472361806,12115.149974224978,38827.16992535409
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),56.281407035175874,12069.321134821315,36448.45156471036
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),56.78391959798994,12024.744827560196,34224.18295625439
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),57.28643216080401,11981.354896054385,32136.064123202035
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),57.78894472361809,11939.10989648238,30172.63100285449
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),58.291457286432156,11897.950897123475,28330.33261503167
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),58.793969849246224,11857.790279251625,26603.554037860315
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),59.2964824120603,11818.606820792604,24982.997487270306
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),59.79899497487437,11780.349594729218,23461.10694339209
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),60.30150753768844,11742.91935800224,22035.11562082191
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),60.804020100502505,11706.279056111576,20696.092413191964
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),61.306532663316574,11670.37076903291,19437.174468973142
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),61.80904522613065,11635.196242577182,18255.729930310637
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),62.31155778894472,11600.733290909408,17147.429910521376
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),62.81407035175879,11566.920957772061,16105.196254234137
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),63.31658291457286,11533.748022193315,15124.703014385837
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),63.81909547738693,11501.307744577804,14206.187734358986
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),64.321608040201,11469.530777911215,13342.785664017929
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),64.82412060301507,11438.405798785148,12530.166382120906
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),65.32663316582914,11407.99605581675,11768.673261329039
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),65.82914572864321,11378.291120409853,11054.031962664027
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),66.33165829145727,11349.282245226028,10382.073519799626
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),66.83417085427135,11320.971916705374,9749.333042304832
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),67.33668341708542,11293.355812525551,9157.371410833211
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),67.83919597989949,11266.438423264093,8601.24441532419
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),68.34170854271356,11240.221288874593,8078.185798108568
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),68.84422110552764,11214.698454189536,7585.953405512233
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),69.3467336683417,11189.818154260847,7125.338142297903
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),69.84924623115577,11165.598317732882,6692.516511326623
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),70.35175879396985,11142.031570431938,6285.3403111028565
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),70.85427135678391,11119.099760628746,5902.314929560037
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),71.35678391959799,11096.76233076673,5543.304523951312
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),71.85929648241205,11075.012076449919,5206.150596854303
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),72.36180904522612,11053.826587216761,4889.616800923905
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),72.8643216080402,11033.195811699195,4592.246596591494
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),73.36683417085426,11013.110523182891,4312.637101160672
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),73.86934673366834,10993.540022339956,4049.968467488691
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),74.3718592964824,10974.462181484581,3803.290577363986
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),74.87437185929647,10955.85379493349,3571.7521419327713
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),75.37688442211055,10937.717313897425,3354.0397439354183
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),75.87939698492461,10920.030997435199,3149.423782080541
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),76.38190954773869,10902.771619300136,2957.2820306674857
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),76.88442211055276,10885.920718191726,2776.9684953396604
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),77.38693467336682,10869.460764524682,2607.867002647546
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),77.8894472361809,10853.390135546004,2448.691198625602
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),78.39195979899498,10837.68582902586,2299.2274713562224
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),78.89447236180904,10822.333136502202,2158.947895806611
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),79.39698492462311,10807.317724379689,2027.3803973469887
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),79.89949748743717,10792.625835782666,1903.9213519516268
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),80.40201005025125,10778.244337812695,1787.7917124257376
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),80.90452261306532,10764.15993402099,1678.7681470147027
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),81.40703517587939,10750.359953046289,1576.4508699940168
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),81.90954773869346,10736.832116610512,1480.479033914205
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),82.41206030150752,10723.563310520458,1390.3198347670552
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),82.9145728643216,10710.541417744103,1305.5830659781718
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),83.41708542713567,10697.755315492714,1226.0206176981762
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),83.91959798994974,10685.193781045366,1151.3387174282993
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),84.42211055276381,10672.845928740528,1081.2729173187265
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),84.92462311557789,10660.702513327687,1015.3538844960624
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),85.42713567839195,10648.75303544178,953.4275414960604
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),85.92964824120602,10636.987848427989,895.2764740765374
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),86.4321608040201,10625.397725733352,840.6976700795633
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),86.93467336683416,10613.973808898483,789.511865213396
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),87.43718592964824,10602.708661532486,741.3356466869632
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),87.9396984924623,10591.594011832387,696.0695783161453
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),88.44221105527637,10580.622263011379,653.5716072588358
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),88.94472361809045,10569.786296193724,613.6996831858237
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),89.44723618090451,10559.079387397964,576.3297086359782
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),89.94974874371859,10548.493411334988,541.1585943136716
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),90.45226130653265,10538.022531572338,508.10886744471867
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),90.95477386934672,10527.66099097025,477.08640396379565
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),91.4572864321608,10517.403159741341,447.9856980207622
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),91.95979899497486,10507.243754079664,420.7138335796263
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),92.46231155778894,10497.17497230805,395.0600616053846
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),92.96482412060301,10487.192099487216,370.95103976278835
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),93.46733668341707,10477.290631441705,348.3198575821046
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),93.96984924623115,10467.465840869709,327.08627665016826
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),94.47236180904522,10457.713262674997,307.1788331293577
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),94.97487437185929,10448.026759468845,288.4609739279509
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),95.47738693467336,10438.402096152633,270.867542935974
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),95.97989949748742,10428.835486815533,254.3492980532346
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),96.4824120603015,10419.322915548642,238.846978225385
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),96.98492462311557,10409.860567646883,224.30776777898228
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),97.48743718592964,10400.443842898767,210.64007914018643
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),97.98994974874371,10391.069047716652,197.79109690631518
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),98.49246231155777,10381.732947367098,185.72625821837593
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),98.99497487437185,10372.432195300047,174.403101029551
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),99.49748743718592,10363.163611464353,163.7840182749954
+mkt_high_g1.0_exp_responsive,Market High — fees + disposal (most robust),100.0,10353.9239024956,153.82282449212858
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),0.0,8573.0,12042.0
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),0.5025125628140703,8272.801263486568,20459.852079018572
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),1.0050251256281406,8276.067909633028,29043.550712184686
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),1.507537688442211,8330.526659165487,37808.854058585486
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),2.0100502512562812,8385.554881891232,46975.8790040273
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),2.5125628140703515,8447.127718039761,56231.471868545115
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),3.015075376884422,8511.889699620451,66515.59586730815
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),3.517587939698492,8581.38229678628,76094.6806644549
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),4.0201005025125625,8657.320298818466,81788.33708529497
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),4.522613065326633,8722.01556655389,87081.84788776952
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),5.025125628140703,8794.517081276705,92066.18404416785
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),5.527638190954773,8898.835504106393,97571.593451578
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),6.030150753768844,9016.535127313655,102660.28337322158
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),6.532663316582914,9151.041956796587,107569.32115834788
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),7.035175879396984,9290.58844098967,112264.58171557395
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),7.537688442211055,9439.357381673974,116763.74847948813
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),8.040201005025125,9608.051538261088,121108.79117444537
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),8.542713567839195,9786.782940544523,125383.8240387842
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),9.045226130653266,9986.791697840235,129597.6696413488
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),9.547738693467336,10213.6979784171,133627.16123231436
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),10.050251256281406,10458.612547197288,137429.40414378757
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),10.552763819095476,10709.085774860048,141176.74128474412
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),11.055276381909547,10952.476519634227,144976.01553609365
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),11.557788944723617,11226.011748461176,148296.73719235396
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),12.060301507537687,11516.870126616257,151536.87441425823
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),12.562814070351758,11822.632368867795,154463.6353406126
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),13.065326633165828,12118.387901674487,157349.16685886917
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),13.567839195979898,12438.646949326769,159986.363695485
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),14.070351758793969,12756.925039417934,162439.64566282742
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),14.572864321608039,13100.04307527416,164781.58893226692
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),15.07537688442211,13457.861722979289,166961.41446576433
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),15.57788944723618,13817.73349414132,169049.47350103626
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),16.08040201005025,14200.527133715621,171565.39750297274
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),16.58291457286432,14592.383257694146,173703.76782840278
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),17.08542713567839,14996.898807353402,175713.5400552676
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),17.587939698492463,15390.555452870145,177457.3033245635
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),18.09045226130653,15824.145616292375,178996.57821539225
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),18.5929648241206,16249.04150739426,180442.92394017574
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),19.09547738693467,16674.535530051475,181808.03187644502
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),19.597989949748744,17117.1297535013,182992.16906044466
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),20.100502512562812,17563.538308337764,184129.20735093422
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),20.60301507537688,18021.222239568488,185142.5306561788
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),21.105527638190953,18459.590466133144,185908.06322893433
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),21.608040201005025,18924.85927671243,186691.39690854555
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),22.110552763819094,19372.850625598498,187469.99030127385
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),22.613065326633162,19839.688297791432,188135.87200234502
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),23.115577889447234,20316.80306871108,188678.53404096168
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),23.618090452261306,20799.781946315405,189198.73700878595
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),24.120603015075375,21267.71434134164,189557.86770807236
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),24.623115577889443,21740.133004899726,189976.57293332322
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),25.125628140703515,22200.943211632566,190357.88526163695
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),25.628140703517587,22683.226100465876,190724.86839322033
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),26.130653266331656,23175.561253501302,191097.27834939628
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),26.633165829145725,23636.62328639843,191353.12629451088
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),27.135678391959797,24111.00766022898,191635.75000212726
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),27.63819095477387,24595.86468959391,191846.31619341418
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),28.140703517587937,25102.011822307828,192174.049035647
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),28.643216080402006,25590.18542107328,192334.76890649824
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),29.145728643216078,26079.173148057016,192498.30675849319
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),29.64824120603015,26566.224841513213,192537.97294229927
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),30.15075376884422,27043.23739767073,192757.1307473108
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),30.653266331658287,27536.590164645786,192946.63557072304
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),31.15577889447236,28047.889073301496,192997.39145916034
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),31.65829145728643,28553.0013474109,193120.53792499198
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),32.1608040201005,29043.121119793766,193268.72137134368
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),32.66331658291457,29529.59576196949,193312.46007415996
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),33.16582914572864,30012.206795676884,193342.76404269843
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),33.66834170854271,30495.20740533123,193468.40391159867
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),34.17085427135678,30994.938328330558,193580.70416885545
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),34.67336683417085,31506.256710100963,193678.1724733445
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),35.175879396984925,31999.333218006177,193685.05499933788
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),35.678391959798994,32476.712609931557,193759.39431326053
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),36.18090452261306,32985.99137273079,193822.708651261
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),36.68341708542713,33496.0878579907,193819.1282752963
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),37.1859296482412,34007.052118244486,193844.204538579
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),37.688442211055275,34506.28805329528,193876.83155163258
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),38.19095477386934,35001.21091624523,193944.17151410025
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),38.69346733668341,35499.435927551756,193903.14010985475
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),39.19597989949749,35990.20221950796,193956.42384318096
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),39.698492462311556,36491.86635608898,194016.28948458453
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),40.201005025125625,37009.94237807714,194114.10713586438
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),40.70351758793969,37528.388728005935,194011.38558810696
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),41.20603015075376,38038.05542616191,193989.91713340612
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),41.70854271356784,38557.00540864865,193993.68243590943
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),42.211055276381906,39070.30106198289,194056.37205193262
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),42.713567839195974,39586.717915929716,194014.64106955836
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),43.21608040201005,40099.89559358216,193996.32689965848
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),43.71859296482412,40605.69700239533,194031.38621855303
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),44.22110552763819,41122.56275520472,194033.61980994992
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),44.723618090452256,41638.23276664181,194102.34680816776
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),45.226130653266324,42150.791152119054,194095.3860726755
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),45.7286432160804,42678.445173538414,194097.9675398675
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),46.23115577889447,43204.43520076226,194202.669120641
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),46.73366834170854,43724.16101493161,194169.64840279068
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),47.23618090452261,44258.431957694265,194279.2291294808
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),47.73869346733668,44787.733207579084,194272.8668721362
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),48.24120603015075,45291.863390534054,194204.81957714667
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),48.74371859296482,45821.95637425367,194289.19231467095
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),49.24623115577889,46366.178724263926,194306.45992496703
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),49.74874371859296,46895.86431469137,194277.78596556245
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),50.25125628140703,47424.00176016324,194394.25511104352
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),50.7537688442211,47747.35310866664,175919.6433789853
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),51.256281407035175,47991.66519859016,159129.0935366951
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),51.75879396984924,48187.74710503868,143904.92993553614
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),52.26130653266331,48345.85074801777,130142.97811320506
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),52.76381909547738,48473.07833984808,117702.10744762103
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),53.26633165829145,48574.87749622957,106450.39230010737
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),53.768844221105525,48656.04860993048,96278.37707907255
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),54.27135678391959,48721.03123985312,87076.94831428307
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),54.77386934673366,48773.31355727829,78753.2006933876
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),55.27638190954774,48814.962392019675,71227.13615580557
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),55.778894472361806,48848.14064152008,64418.39557447339
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),56.281407035175874,48873.86009711862,58260.50721962019
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),56.78391959798994,48892.72581238796,52699.56728813744
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),57.28643216080401,48906.25862190488,47663.66247105322
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),57.78894472361809,48914.62881311726,43116.76470081468
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),58.291457286432156,48918.84643794216,38998.45700909082
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),58.793969849246224,48919.26205766584,35275.474206579434
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),59.2964824120603,48916.39189007976,31906.70248459477
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),59.79899497487437,48910.74240346969,28855.778190850036
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),60.30150753768844,48902.62770683666,26098.802437726103
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),60.804020100502505,48892.48963075633,23604.652536436064
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),61.306532663316574,48880.768471160955,21345.66402279038
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),61.80904522613065,48867.73859737451,19302.74220132165
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),62.31155778894472,48853.72957266012,17455.386060241508
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),62.81407035175879,48839.10282564578,15782.025510387553
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),63.31658291457286,48824.09994128089,14269.980690046714
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),63.81909547738693,48808.9782093703,12904.066770734971
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),64.321608040201,48793.98176373865,11666.94369597046
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),64.82412060301507,48779.31558708731,10549.53303547446
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),65.32663316582914,48765.155427308964,9540.443671279323
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),65.82914572864321,48751.633180433644,8626.738991954788
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),66.33165829145727,48738.880996426,7801.18272178883
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),66.83417085427135,48726.99598733552,7055.297756002908
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),67.33668341708542,48716.050301427575,6379.952201945495
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),67.83919597989949,48706.087816616695,5769.484813484042
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),68.34170854271356,48697.146558268636,5217.666465711213
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),68.84422110552764,48689.27811124292,4717.8334789439805
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),69.3467336683417,48682.46134420972,4265.983343359904
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),69.84924623115577,48676.687669615065,3857.8197625160224
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),70.35175879396985,48671.99460185085,3487.9071799461085
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),70.85427135678391,48668.3304595938,3153.587211072037
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),71.35678391959799,48665.65930862548,2851.902004479791
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),71.85929648241205,48663.985774428154,2578.4386025261806
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),72.36180904522612,48663.249448589675,2331.313644466773
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),72.8643216080402,48663.39880802041,2108.3839346295304
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),73.36683417085426,48664.40731568908,1906.371265817376
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),73.86934673366834,48666.209811076806,1723.764882385148
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),74.3718592964824,48668.74423403815,1558.917647032644
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),74.87437185929647,48671.96798630914,1409.6837674959606
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),75.37688442211055,48675.81675632802,1274.679582939963
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),75.87939698492461,48680.22238989163,1152.7381961245878
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),76.38190954773869,48685.136644877224,1042.4016384710774
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),76.88442211055276,48690.502304246795,942.5324571957552
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),77.38693467336682,48696.253071433195,852.315839468239
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),77.8894472361809,48702.33785652279,770.7293302095181
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),78.39195979899498,48708.70687679188,696.8543717169013
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),78.89447236180904,48715.30110849807,630.1234103827799
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),79.39698492462311,48722.06996862807,569.8206233083363
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),79.89949748743717,48728.96663274706,515.202205936652
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),80.40201005025125,48735.9402904454,465.8620488865602
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),80.90452261306532,48742.9439261926,421.2987289750069
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),81.40703517587939,48749.932711428635,380.92957502274777
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),81.90954773869346,48756.86219534158,344.4524852205147
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),82.41206030150752,48763.68986712711,311.5196507896962
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),82.9145728643216,48770.37507184455,281.70487287128344
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),83.41708542713567,48776.878362326934,254.74057449659588
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),83.91959798994974,48783.16198304333,230.34437994505382
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),84.42211055276381,48789.18972875603,208.3028468971116
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),84.92462311557789,48794.92703448424,188.37775387694563
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),85.42713567839195,48800.34093552914,170.36426800095796
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),85.92964824120602,48805.39874902666,154.08633609042656
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),86.4321608040201,48810.070280547756,139.37054081026642
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),86.93467336683416,48814.32642816944,126.05693470448459
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),87.43718592964824,48818.13813410665,114.02249371712482
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),87.9396984924623,48821.47792158111,103.14237852528684
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),88.44221105527637,48824.319495927615,93.2952599126662
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),88.94472361809045,48826.637056423475,84.38549815890583
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),89.44723618090451,48828.405508011914,76.3289735484316
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),89.94974874371859,48829.60056046526,69.03816302230288
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),90.45226130653265,48830.19867205182,62.44033141434982
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),90.95477386934672,48830.17718901608,56.47343534038598
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),91.4572864321608,48829.513537835905,51.07573115573794
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),91.95979899497486,48828.18589284633,46.19325253333347
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),92.46231155778894,48826.17333608687,41.7793452855133
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),92.96482412060301,48823.45492908301,37.78777633837621
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),93.46733668341707,48820.0103111332,34.176881677893604
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),93.96984924623115,48815.81957332384,30.91813276990173
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),94.47236180904522,48810.86304879135,27.97292775702708
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),94.97487437185929,48805.12138785635,25.308212744881725
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),95.47738693467336,48798.57548378758,22.893414525657
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),95.97989949748742,48791.20643451976,20.711977369610565
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),96.4824120603015,48782.99548452496,18.736904162370735
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),96.98492462311557,48773.9240036135,16.947294907374125
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),97.48743718592964,48763.973739446934,15.32782351433994
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),97.98994974874371,48753.12624874045,13.861915118334753
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),98.49246231155777,48741.36321630796,12.536006016061052
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),98.99497487437185,48728.66675166685,11.336135401125324
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),99.49748743718592,48715.018712848876,10.251203230669413
+cnc_high_g2.0_exp_sluggish,C&C High + 2× growth + sluggish (vulnerability),100.0,48700.40107812042,9.270640558012792
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),0.0,8573.0,12042.0
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),0.5025125628140703,8427.876897042512,40555.67687546814
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),1.0050251256281406,8645.744641378848,70304.9796580794
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),1.507537688442211,8946.622062974213,101282.54345035386
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),2.0100502512562812,9274.59651585388,134219.38875223053
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),2.5125628140703515,9628.15258010181,168036.65285040918
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),3.015075376884422,10004.204851620214,205671.60803628233
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),3.517587939698492,10395.519168331282,241871.92959455456
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),4.0201005025125625,10789.51212700039,266764.55891410785
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),4.522613065326633,11191.108604288345,290598.9707388881
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),5.025125628140703,11628.886797530644,313586.7142159651
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),5.527638190954773,12145.289935816867,338188.15760651027
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),6.030150753768844,12723.886221993205,361657.6152884334
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),6.532663316582914,13370.003768639313,384615.86342077807
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),7.035175879396984,14072.705197274321,406979.0062752842
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),7.537688442211055,14836.129828477346,428759.6861907626
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),8.040201005025125,15673.237338201632,450028.4975018834
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),8.542713567839195,16574.665292604943,471065.7409601809
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),9.045226130653266,17555.894421106357,491894.13877469336
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),9.547738693467336,18620.394819820674,512116.5215339233
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),10.050251256281406,19758.426636471817,531607.9671082187
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),10.552763819095476,20960.874599339404,550853.748293642
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),11.055276381909547,22217.01586592051,570185.6125606417
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),11.557788944723617,23561.77335951766,587968.9717810543
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),12.060301507537687,24977.478880688483,605429.9207390237
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),12.562814070351758,26462.39258133316,621800.9084021185
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),13.065326633165828,27992.685578646215,637905.4039008984
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),13.567839195979898,29599.148050656666,653111.35286175
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),14.070351758793969,31253.89672074907,667592.8741302167
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),14.572864321608039,32985.37160286529,681571.6129310204
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),15.07537688442211,34781.61202792249,694877.3477411256
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),15.57788944723618,36632.481133339,707722.7297781439
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),16.08040201005025,38566.364704512314,721703.7508450149
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),16.58291457286432,40569.741791178094,734441.9621390549
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),17.08542713567839,42646.49142824931,746620.4735058179
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),17.587939698492463,44765.81761750852,757836.6960157781
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),18.09045226130653,46972.25967407406,768259.880852227
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),18.5929648241206,49221.707061852976,778201.2242980025
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),19.09547738693467,51519.62180811529,787720.9568523009
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),19.597989949748744,53879.42489309703,796506.9925578161
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),20.100502512562812,56289.81285584497,804962.1149317961
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),20.60301507537688,58754.75576506333,812864.3877734882
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),21.105527638190953,61242.75478752404,819801.1239901562
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),21.608040201005025,63793.77888440488,826615.7465383466
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),22.110552763819094,66371.5734942336,833211.642420356
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),22.613065326633162,69004.05876445714,839306.7303959329
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),23.115577889447234,71682.6983330634,844841.6214455563
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),23.618090452261306,74402.49188313558,850128.3419909964
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),24.120603015075375,77140.3714558302,854754.5164602209
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),24.623115577889443,79916.03062047534,859380.7432632063
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),25.125628140703515,82716.2290952102,863741.8310058354
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),25.628140703517587,85570.91408288637,867909.4130113936
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),26.130653266331656,88469.5473384093,871933.6924129758
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),26.633165829145725,91370.29262314088,875479.7605646712
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),27.135678391959797,94316.65245253847,878955.9912455037
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),27.63819095477387,97307.37702650721,882101.985861884
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),28.140703517587937,100356.91918517574,885458.3302741878
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),28.643216080402006,103422.29242260875,888192.0109135883
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),29.145728643216078,106520.64594077114,890815.2669361399
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),29.64824120603015,109646.64575914064,892993.7673554891
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),30.15075376884422,112799.77579239281,895541.9984676016
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),30.653266331658287,116003.9252215735,897926.1690418468
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),31.15577889447236,119256.13081572554,899824.3951521425
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),31.65829145728643,122537.23880127889,901798.8964625142
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),32.1608040201005,125838.33616276788,903767.4586342432
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),32.66331658291457,129169.32203788747,905350.9931856939
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),33.16582914572864,132528.16183188112,906806.6634063817
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),33.66834170854271,135923.93292349426,908483.0743683495
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),34.17085427135678,139372.36489134238,910051.1848228693
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),34.67336683417085,142867.43589332496,911500.2984881871
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),35.175879396984925,146375.69584596154,912626.816994922
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),35.678391959798994,149905.78807546903,913883.1967752473
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),36.18090452261306,153503.85344002195,915046.4461334315
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),36.68341708542713,157139.44270645455,915965.6700675298
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),37.1859296482412,160812.34656845537,916911.8405846639
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),37.688442211055275,164507.77555190492,917833.889105314
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),38.19095477386934,168235.8662587895,918814.9788788402
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),38.69346733668341,172004.85913936666,919420.2964357822
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),39.19597989949749,175802.23361581267,920275.1057684394
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),39.698492462311556,179649.88490745038,921118.6815571204
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),40.201005025125625,183549.74749846934,922026.9087499344
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),40.70351758793969,187486.75935094582,922307.3637937381
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),41.20603015075376,191450.7612071662,922786.7579364796
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),41.70854271356784,195462.86725727195,923309.9695008453
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),42.211055276381906,199506.04725861532,923980.111825993
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),42.713567839195974,203588.60081390222,924306.8565754277
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),43.21608040201005,207705.04880127974,924680.0567341549
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),43.71859296482412,211852.3790149015,925185.5889133813
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),44.22110552763819,216048.2874104319,925569.8934290849
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),44.723618090452256,220282.4490255959,926145.3286926477
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),45.226130653266324,224553.7474522526,926459.1293428373
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),45.7286432160804,228878.1675448743,926788.330592194
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),46.23115577889447,233242.0335084002,927375.150649511
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),46.73366834170854,237637.87599899343,927576.6459640254
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),47.23618090452261,242087.74103889705,928166.7901245264
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),47.73869346733668,246572.53908880433,928409.5241821414
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),48.24120603015075,251070.03856392566,928460.6351597582
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),48.74371859296482,255634.86596970097,928926.7419186893
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),49.24623115577889,260254.4648415925,929198.6913186015
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),49.74874371859296,264899.4160355383,929336.4005246551
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),50.25125628140703,269580.2504382016,928419.8468500603
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),50.7537688442211,273810.00731761067,872303.7399766339
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),51.256281407035175,277740.60072689364,819337.6682201338
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),51.75879396984924,281476.84192951035,769451.4947694229
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),52.26130653266331,285055.7086393726,722545.2433823108
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),52.76381909547738,288491.21257188293,678500.7484418293
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),53.26633165829145,291799.9951063565,637159.8072634111
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),53.768844221105525,294999.4897578677,598322.7174687533
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),54.27135678391959,298096.69118324236,561873.9051083055
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),54.77386934673366,301104.4008886435,527660.4736950941
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),55.27638190954774,304032.61451742897,495538.57854974316
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),55.778894472361806,306883.91534900217,465390.2320334052
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),56.281407035175874,309670.3637044059,437065.26636930724
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),56.78391959798994,312389.4485029673,410479.3547312934
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),57.28643216080401,315047.26581738907,385506.71252332855
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),57.78894472361809,317647.1868188534,362042.2581242323
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),58.291457286432156,320187.42166166526,340018.2772085124
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),58.793969849246224,322672.5206422697,319317.73342483735
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),59.2964824120603,325103.1216746712,299903.8135185374
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),59.79899497487437,327481.7830052995,281672.5282582314
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),60.30150753768844,329810.69826655043,264532.6431333122
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),60.804020100502505,332092.43023574934,248443.50004187127
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),61.306532663316574,334329.34280842735,233345.35921351315
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),61.80904522613065,336523.5125114069,219150.90935255933
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),62.31155778894472,338677.19393568306,205811.9647426688
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),62.81407035175879,340792.6613720826,193303.87592613575
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),63.31658291457286,342872.1431524528,181547.0842228084
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),63.81909547738693,344917.7375357689,170488.46588948098
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),64.321608040201,346930.4169104146,160115.19475276524
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),64.82412060301507,348912.3030399301,150373.30578550947
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),65.32663316582914,350865.01476869086,141226.83462627648
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),65.82914572864321,352789.6741530695,132629.61526222574
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),66.33165829145727,354687.71444349305,124552.76331065256
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),66.83417085427135,356560.3632836369,116967.09718546993
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),67.33668341708542,358408.71084165276,109845.45556172167
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),67.83919597989949,360233.8034208144,103153.12254470741
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),68.34170854271356,362036.5295076662,96865.08092416449
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),68.84422110552764,363817.65432293346,90960.78088028428
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),69.3467336683417,365577.8488679525,85419.74211354546
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),69.84924623115577,367317.99571637367,80215.4786012482
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),70.35175879396985,369038.83471366897,75324.68127051782
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),70.85427135678391,370740.73910810193,70733.02018072752
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),71.35678391959799,372424.1393227194,66424.16130529979
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),71.85929648241205,374089.5611021269,62379.265388626125
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),72.36180904522612,375737.5983615699,58577.61844499697
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),72.8643216080402,377368.41159177833,55008.279806348604
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),73.36683417085426,378982.24743628426,51658.016492559225
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),73.86934673366834,380579.3772327115,48513.36348588437
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),74.3718592964824,382160.2724596333,45557.77206304972
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),74.87437185929647,383724.9431686424,42782.36274948749
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),75.37688442211055,385273.5043737732,40176.7193719773
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),75.87939698492461,386806.0683730746,37730.89405700334
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),76.38190954773869,388323.18093718326,35430.69043071955
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),76.88442211055276,389824.665343875,33270.16384982502
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),77.38693467336682,391310.5647510797,31241.43088914163
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),77.8894472361809,392780.8869154547,29337.429871167817
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),78.39195979899498,394235.7036180986,27550.51673469657
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),78.89447236180904,395675.39736723533,25868.9809967138
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),79.39698492462311,397099.7558702451,24289.83399573681
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),79.89949748743717,398508.76848068775,22807.56113504644
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),80.40201005025125,399902.40276634536,21417.277281894836
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),80.90452261306532,401280.69476439245,20112.57466197115
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),81.40703517587939,402643.78117908846,18884.755115742788
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),81.90954773869346,403991.51481931476,17731.999866923616
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),82.41206030150752,405323.84719212394,16650.246702116234
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),82.9145728643216,406640.7157702241,15635.878041479631
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),83.41708542713567,407942.1257720481,14683.58797695664
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),83.91959798994974,409228.09444501234,13787.835458609017
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),84.42211055276381,410498.4964992906,12946.875641740107
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),84.92462311557789,411753.2597564329,12157.657041862323
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),85.42713567839195,412992.3030065796,11417.44232308445
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),85.92964824120602,414215.6364034199,10722.106361275395
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),86.4321608040201,415423.2311644687,10068.345138832718
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),86.93467336683416,416614.97140303877,9454.492308968487
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),87.43718592964824,417790.7838944846,8878.31934474744
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),87.9396984924623,418950.59106873674,8337.832429052845
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),88.44221105527637,420094.3778577921,7829.745617186999
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),88.94472361809045,421222.07619511266,7352.118940971264
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),89.44723618090451,422333.59731871344,6903.620586552165
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),89.94974874371859,423428.86890208186,6482.678801551321
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),90.45226130653265,424507.81660389155,6087.9033108698195
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),90.95477386934672,425570.36175526364,5716.720023696906
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),91.4572864321608,426616.4253957144,5367.753599443759
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),91.95979899497486,427645.92706333956,5040.1132495432275
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),92.46231155778894,428658.783582676,4732.6771685701815
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),92.96482412060301,429654.90968367853,4444.457938292965
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),93.46733668341707,430634.21121958294,4173.458237064863
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),93.96984924623115,431596.59711753833,3918.6871655640807
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),94.47236180904522,432541.975564927,3679.5167979242206
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),94.97487437185929,433470.2506637659,3455.1177080044495
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),95.47738693467336,434381.32419005776,3244.7558094238816
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),95.97989949748742,435275.11562482617,3046.9799128347927
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),96.4824120603015,436151.52652351686,2861.066874468023
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),96.98492462311557,437010.45255185635,2686.53343132405
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),97.48743718592964,437851.7927600176,2522.7600484642585
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),97.98994974874371,438675.444548468,2369.1951001797984
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),98.49246231155777,439481.3173926969,2224.9779440354923
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),98.99497487437185,440269.3120962988,2089.5086991423623
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),99.49748743718592,441039.3250192491,1962.3321238386638
+failure_g3.0_exp_sluggish,Governance failure + 3× growth + sluggish (worst case),100.0,441791.2548567079,1842.9514475776234

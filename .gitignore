@@ -1,0 +1,36 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Vendored pySSEM clone - install separately, see README
+pyssem-repo/
+
+# Large pySSEM input data (SEP2 launch scenario, initial population) -
+# download separately, see README
+pyssem/utils/launch/data/*.csv
+
+# Local symlink into pyssem-repo (atmospheric drag data) - recreate after
+# cloning pyssem-repo, see README. Excluded because it currently resolves
+# to an absolute path on the original machine.
+pyssem/utils/drag
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.Rhistory
+
+# Written content — lives in the EUR thesis repository, not here
+drafts/
+thesis_clean.md
+body_fragment.tex
+CLAUDE.md
+campaign_design.png

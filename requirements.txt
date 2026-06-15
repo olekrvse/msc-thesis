@@ -1,0 +1,22 @@
+# Python 3.14
+#
+# Third-party packages used directly by exploration/*.py. Version floors
+# mirror pyssem-repo/requirements.txt where pyssem itself pins a floor.
+numpy>=1.2
+pandas>=2.0
+matplotlib
+scipy>=1.10
+sympy>=1.11
+tqdm>=4.65
+gdown>=4.0.0
+requests>=2.0
+beautifulsoup4
+loky
+imageio
+
+# pyssem is not published on PyPI - install it separately from the
+# upstream ARCLab-MIT repository (clone into ./pyssem-repo so the
+# sys.path inserts in exploration/*.py resolve correctly):
+#
+#   git clone https://github.com/ARCLab-MIT/pyssem.git pyssem-repo
+#   pip install -e ./pyssem-repo

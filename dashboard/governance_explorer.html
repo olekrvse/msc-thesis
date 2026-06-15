@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbital Governance Explorer</title>
+<style>
+:root {
+  --bg:       #080c18;
+  --surface:  #0d1322;
+  --surface2: #131b2e;
+  --border:   #1e2d4a;
+  --text:     #e2e8f0;
+  --muted:    #7b93b8;
+  --green:    #10b981;
+  --red:      #ef4444;
+  --orange:   #f59e0b;
+  --blue:     #3b82f6;
+  --purple:   #8b5cf6;
+  --accent:   #60a5fa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ── Header ───────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #0d1b3e 0%, #0a1628 60%, #0d1322 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-left h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+.header-left h1 span { color: var(--accent); }
+.header-left p {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.header-badge {
+  background: rgba(96,165,250,0.12);
+  border: 1px solid rgba(96,165,250,0.25);
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ── Main grid ────────────────────────────── */
+.dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "controls results ranking"
+    "traj traj traj";
+  gap: 1px;
+  background: var(--border);
+  min-height: calc(100vh - 65px);
+}
+.panel {
+  background: var(--surface);
+  padding: 20px;
+}
+
+/* ── Panel 1: Controls ────────────────────── */
+.controls { grid-area: controls; }
+.panel-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.panel-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.control-group { margin-bottom: 20px; }
+.control-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.control-label .val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.control-desc {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+input[type=range] {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.2);
+  transition: box-shadow 0.15s;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(96,165,250,0.3);
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+/* Toggle switch */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.toggle-label-left, .toggle-label-right {
+  font-size: 12px;
+  color: var(--muted);
+  transition: color 0.15s;
+  font-weight: 500;
+}
+.toggle-label-left.active, .toggle-label-right.active { color: var(--text); }
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.toggle input:checked ~ .toggle-track { background: var(--accent); }
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.toggle input:checked ~ .toggle-thumb { transform: translateX(20px); }
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+/* Match info */
+.match-info {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.match-info strong { color: var(--text); font-size: 12px; }
+.match-chip {
+  display: inline-block;
+  background: rgba(96,165,250,0.12);
+  border: 1px solid rgba(96,165,250,0.2);
+  color: var(--accent);
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── Panel 2: Results ─────────────────────── */
+.results { grid-area: results; display: flex; flex-direction: column; gap: 16px; }
+
+.debris-hero {
+  background: var(--surface2);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 22px 24px;
+  text-align: center;
+}
+.debris-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.debris-number {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  transition: color 0.3s, transform 0.15s;
+  font-variant-numeric: tabular-nums;
+}
+.debris-unit { font-size: 16px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.debris-number.green { color: var(--green); }
+.debris-number.yellow { color: #eab308; }
+.debris-number.orange { color: var(--orange); }
+.debris-number.red { color: var(--red); }
+
+.badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.25s;
+}
+.badge-pass {
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: var(--green);
+}
+.badge-fail {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: var(--red);
+}
+.badge-warn {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: var(--orange);
+}
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+.interpretation {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.interpretation.pass { border-left-color: var(--green); }
+.interpretation.fail { border-left-color: var(--red); }
+.interpretation.warn { border-left-color: var(--orange); }
+
+/* Metrics grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.metric-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.metric-card .m-label {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.metric-card .m-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.metric-card .m-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+/* Effective config display */
+.eff-config {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.eff-config-title { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+.eff-params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.eff-param {
+  font-size: 11px;
+  background: rgba(30,45,74,0.8);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  color: var(--text);
+}
+.eff-param span { color: var(--muted); }
+
+/* ── Panel 3: Ranking ─────────────────────── */
+.ranking { grid-area: ranking; }
+.ranking-chart-wrap { height: 440px; position: relative; }
+
+/* ── Panel 4: Trajectory ──────────────────── */
+.trajectory { grid-area: traj; background: var(--surface); }
+.traj-chart-wrap { height: 280px; position: relative; margin-top: 12px; }
+.traj-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .dashboard {
+    grid-template-columns: 260px 1fr;
+    grid-template-areas:
+      "controls results"
+      "ranking ranking"
+      "traj traj";
+  }
+}
+@media (max-width: 720px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: "controls" "results" "ranking" "traj";
+  }
+}
+
+/* Pulse animation for debris number on change */
+@keyframes pulse-green { 0%,100%{opacity:1} 50%{opacity:0.6} }
+.pulse { animation: pulse-green 0.4s ease; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Orbital Governance <span>Explorer</span></h1>
+    <p>Which policies keep Low Earth Orbit sustainable? — Based on a 192-run simulation campaign using pySSEM (Brownhall et al., 2025)</p>
+  </div>
+  <div class="header-badge">MSc Thesis · RSM Erasmus</div>
+</header>
+
+<main class="dashboard">
+
+  <!-- PANEL 1: Controls -->
+  <section class="panel controls">
+    <div class="panel-title">Build Your Governance Regime</div>
+
+    <div class="control-group">
+      <div class="control-label">
+        Disposal Compliance (Pm)
+        <span class="val" id="pm-val">0.90</span>
+      </div>
+      <div class="control-desc">Fraction of satellites that successfully deorbit after mission end. Higher = cleaner orbital environment. The single most important governance lever.</div>
+      <input type="range" id="pm-slider" min="0.50" max="0.99" step="0.01" value="0.90">
+    </div>
+
+    <div class="control-group">
+      <div class="control-label">
+        Launch Growth Multiplier
+        <span class="val" id="launch-val">1.0×</span>
+      </div>
+      <div class="control-desc">How fast the satellite industry grows relative to current projections. 2× means twice today's launch rate by 2125. Market pricing can suppress this.</div>
+      <input type="range" id="launch-slider" min="0.5" max="3.0" step="0.5" value="1.0">
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="control-group">
+      <div class="control-label">Behavioral Response</div>
+      <div class="control-desc">Do operators comply fully with governance rules, or only partially?</div>
+      <div class="toggle-row">
+        <span class="toggle-label-left active" id="beh-left-lbl">Responsive</span>
+        <label class="toggle">
+          <input type="checkbox" id="behavior-toggle">
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+        <span class="toggle-label-right" id="beh-right-lbl">Sluggish</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="control-label">
+        Collision Avoidance Quality (α)
+        <span class="val" id="alpha-val">1×10⁻⁵</span>
+      </div>
+      <div class="control-desc">Failure rate of conjunction avoidance manoeuvres. Lower = better CA. In practice, this parameter has negligible effect on debris levels.</div>
+      <input type="range" id="alpha-slider" min="-6" max="-2" step="0.5" value="-5">
+    </div>
+
+    <div class="control-group">
+      <div class="control-label">Atmospheric Model</div>
+      <div class="control-desc">Solar activity drives atmospheric drag, which decays debris faster at higher altitudes.</div>
+      <div class="toggle-row">
+        <span class="toggle-label-left active" id="atm-left-lbl">Conservative</span>
+        <label class="toggle">
+          <input type="checkbox" id="solar-toggle">
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+        <span class="toggle-label-right" id="atm-right-lbl">Variable solar</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="match-info">
+      <div><strong>Nearest campaign run</strong></div>
+      <div style="margin-top:4px" id="match-gov-label">—</div>
+      <div id="match-chip-wrap" style="margin-top:5px"></div>
+    </div>
+  </section>
+
+  <!-- PANEL 2: Results -->
+  <section class="panel results">
+    <div class="panel-title">What Happens</div>
+
+    <div class="debris-hero">
+      <div class="debris-label">Total Debris at Year 100</div>
+      <div>
+        <span class="debris-number" id="debris-number">—</span>
+        <span class="debris-unit">objects</span>
+      </div>
+      <div class="badges" id="badges-row"></div>
+    </div>
+
+    <div class="interpretation" id="interpretation-box">
+      Adjust the controls to explore scenarios.
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="m-label">Peak Debris</div>
+        <div class="m-value" id="peak-debris">—</div>
+        <div class="m-sub">maximum over 100 yr</div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">Effective Pm</div>
+        <div class="m-value" id="eff-pm">—</div>
+        <div class="m-sub">after behavioral response</div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">Effective Launch</div>
+        <div class="m-value" id="eff-launch">—</div>
+        <div class="m-sub">governance × growth</div>
+      </div>
+      <div class="metric-card">
+        <div class="m-label">Debris Trend</div>
+        <div class="m-value" id="debris-trend">—</div>
+        <div class="m-sub">objects/yr (final 50 yr)</div>
+      </div>
+    </div>
+
+    <div class="eff-config">
+      <div class="eff-config-title">Matched governance configuration</div>
+      <div class="eff-params" id="eff-params-row">—</div>
+    </div>
+  </section>
+
+  <!-- PANEL 3: Ranking -->
+  <section class="panel ranking">
+    <div class="panel-title">How It Compares — Low-Solar Robustness</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">
+      % of 6 conservative-atmosphere scenarios passing both thresholds (debris &lt; 30k + stable trend). Highlighted bar = closest match to your settings.
+    </div>
+    <div class="ranking-chart-wrap">
+      <canvas id="ranking-chart"></canvas>
+    </div>
+  </section>
+
+  <!-- PANEL 4: Trajectory -->
+  <section class="panel trajectory">
+    <div class="panel-title">Debris Trajectory — 100-Year Simulation</div>
+    <div style="font-size:11px;color:var(--muted)" id="traj-header-note">
+      Reference lines always shown. Selected scenario highlighted if available.
+    </div>
+    <div class="traj-chart-wrap">
+      <canvas id="traj-chart"></canvas>
+    </div>
+    <div class="traj-note" id="traj-note"></div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+// ── Embedded data ──────────────────────────────────────────────────────────
+const CAMPAIGN = [{"run_id":"cnc_low_g1.0_exp_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":47392,"peak_debris_count":47392,"sustainable":false,"capacity_ok":false,"debris_growth_rate":261.2},{"run_id":"cnc_low_g1.0_exp_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":47402,"peak_debris_count":47402,"sustainable":false,"capacity_ok":false,"debris_growth_rate":261.22},{"run_id":"cnc_low_g1.0_jb_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":2826,"peak_debris_count":19646,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-321.51},{"run_id":"cnc_low_g1.0_jb_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":2790,"peak_debris_count":19635,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-307.13},{"run_id":"cnc_low_g2.0_exp_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":94405,"peak_debris_count":94405,"sustainable":false,"capacity_ok":false,"debris_growth_rate":708.94},{"run_id":"cnc_low_g2.0_exp_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":94352,"peak_debris_count":94352,"sustainable":false,"capacity_ok":false,"debris_growth_rate":708.81},{"run_id":"cnc_low_g2.0_jb_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":4776,"peak_debris_count":32984,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-532.36},{"run_id":"cnc_low_g2.0_jb_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":4763,"peak_debris_count":32815,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-532.34},{"run_id":"cnc_low_g3.0_exp_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":149870,"peak_debris_count":149870,"sustainable":false,"capacity_ok":false,"debris_growth_rate":1307.25},{"run_id":"cnc_low_g3.0_exp_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":148684,"peak_debris_count":148684,"sustainable":false,"capacity_ok":false,"debris_growth_rate":1285.81},{"run_id":"cnc_low_g3.0_jb_responsive","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":6643,"peak_debris_count":45889,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-747.09},{"run_id":"cnc_low_g3.0_jb_sluggish","gov_id":"cnc_low","category":"C&C","level":"Low","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":25,"gov_launch_scale":1.0,"total_debris_final":6750,"peak_debris_count":45891,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-762.55},{"run_id":"cnc_med_g1.0_exp_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":27950,"peak_debris_count":28141,"sustainable":false,"capacity_ok":true,"debris_growth_rate":19.41},{"run_id":"cnc_med_g1.0_exp_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":36628,"peak_debris_count":36693,"sustainable":false,"capacity_ok":false,"debris_growth_rate":56.34},{"run_id":"cnc_med_g1.0_jb_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":905,"peak_debris_count":15031,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-226.64},{"run_id":"cnc_med_g1.0_jb_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":934,"peak_debris_count":17968,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-274.57},{"run_id":"cnc_med_g2.0_exp_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":50532,"peak_debris_count":50532,"sustainable":false,"capacity_ok":false,"debris_growth_rate":128.13},{"run_id":"cnc_med_g2.0_exp_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":70498,"peak_debris_count":70498,"sustainable":false,"capacity_ok":false,"debris_growth_rate":245.48},{"run_id":"cnc_med_g2.0_jb_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":1089,"peak_debris_count":23416,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-366.53},{"run_id":"cnc_med_g2.0_jb_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":1217,"peak_debris_count":30105,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-490.7},{"run_id":"cnc_med_g3.0_exp_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":76243,"peak_debris_count":76243,"sustainable":false,"capacity_ok":false,"debris_growth_rate":289.24},{"run_id":"cnc_med_g3.0_exp_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":109744,"peak_debris_count":109744,"sustainable":false,"capacity_ok":false,"debris_growth_rate":520.04},{"run_id":"cnc_med_g3.0_jb_responsive","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":1234,"peak_debris_count":31493,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-483.6},{"run_id":"cnc_med_g3.0_jb_sluggish","gov_id":"cnc_med","category":"C&C","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":12,"gov_launch_scale":1.0,"total_debris_final":1419,"peak_debris_count":41962,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-638.38},{"run_id":"cnc_high_g1.0_exp_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":12717,"peak_debris_count":15181,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-46.79},{"run_id":"cnc_high_g1.0_exp_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":26949,"peak_debris_count":28861,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-40.08},{"run_id":"cnc_high_g1.0_jb_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":761,"peak_debris_count":9242,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-126.13},{"run_id":"cnc_high_g1.0_jb_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":774,"peak_debris_count":15139,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-196.96},{"run_id":"cnc_high_g2.0_exp_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":17599,"peak_debris_count":19906,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-46.82},{"run_id":"cnc_high_g2.0_exp_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":48984,"peak_debris_count":49096,"sustainable":false,"capacity_ok":false,"debris_growth_rate":10.53},{"run_id":"cnc_high_g2.0_jb_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":748,"peak_debris_count":10809,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-146.64},{"run_id":"cnc_high_g2.0_jb_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":759,"peak_debris_count":24313,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-296.45},{"run_id":"cnc_high_g3.0_exp_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":22696,"peak_debris_count":24789,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-43.69},{"run_id":"cnc_high_g3.0_exp_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":73824,"peak_debris_count":73826,"sustainable":false,"capacity_ok":false,"debris_growth_rate":98.2},{"run_id":"cnc_high_g3.0_jb_responsive","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":766,"peak_debris_count":13193,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-169.87},{"run_id":"cnc_high_g3.0_jb_sluggish","gov_id":"cnc_high","category":"C&C","level":"High","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":5,"gov_launch_scale":1.0,"total_debris_final":788,"peak_debris_count":33055,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-391.17},{"run_id":"mkt_low_g1.0_exp_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":39246,"peak_debris_count":39433,"sustainable":false,"capacity_ok":false,"debris_growth_rate":17.27},{"run_id":"mkt_low_g1.0_exp_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":43768,"peak_debris_count":43906,"sustainable":false,"capacity_ok":false,"debris_growth_rate":30.67},{"run_id":"mkt_low_g1.0_jb_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":776,"peak_debris_count":20160,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-273.07},{"run_id":"mkt_low_g1.0_jb_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":787,"peak_debris_count":22433,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-307.23},{"run_id":"mkt_low_g2.0_exp_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":77202,"peak_debris_count":77202,"sustainable":false,"capacity_ok":false,"debris_growth_rate":183.04},{"run_id":"mkt_low_g2.0_exp_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":88765,"peak_debris_count":88765,"sustainable":false,"capacity_ok":false,"debris_growth_rate":250.25},{"run_id":"mkt_low_g2.0_jb_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":863,"peak_debris_count":33339,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-461.01},{"run_id":"mkt_low_g2.0_jb_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":867,"peak_debris_count":37326,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-500.9},{"run_id":"mkt_low_g3.0_exp_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":121713,"peak_debris_count":121713,"sustainable":false,"capacity_ok":false,"debris_growth_rate":456.48},{"run_id":"mkt_low_g3.0_exp_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":141054,"peak_debris_count":141054,"sustainable":false,"capacity_ok":false,"debris_growth_rate":582.96},{"run_id":"mkt_low_g3.0_jb_responsive","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.7,"effective_pm":0.7,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":865,"peak_debris_count":47481,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-646.41},{"run_id":"mkt_low_g3.0_jb_sluggish","gov_id":"mkt_low","category":"Market","level":"Low","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.7,"effective_pm":0.6599999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":905,"peak_debris_count":53573,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-734.38},{"run_id":"mkt_med_g1.0_exp_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":18906,"peak_debris_count":20445,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-33.8},{"run_id":"mkt_med_g1.0_exp_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":26743,"peak_debris_count":27718,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-18.21},{"run_id":"mkt_med_g1.0_jb_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":739,"peak_debris_count":11335,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-161.93},{"run_id":"mkt_med_g1.0_jb_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":718,"peak_debris_count":14686,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-209.87},{"run_id":"mkt_med_g2.0_exp_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":30797,"peak_debris_count":31470,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-6.94},{"run_id":"mkt_med_g2.0_exp_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":48170,"peak_debris_count":48219,"sustainable":false,"capacity_ok":false,"debris_growth_rate":51.79},{"run_id":"mkt_med_g2.0_jb_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":762,"peak_debris_count":16538,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-235.34},{"run_id":"mkt_med_g2.0_jb_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":861,"peak_debris_count":23534,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-323.27},{"run_id":"mkt_med_g3.0_exp_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":43408,"peak_debris_count":43531,"sustainable":false,"capacity_ok":false,"debris_growth_rate":31.03},{"run_id":"mkt_med_g3.0_exp_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":71924,"peak_debris_count":71924,"sustainable":false,"capacity_ok":false,"debris_growth_rate":156.29},{"run_id":"mkt_med_g3.0_jb_responsive","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":751,"peak_debris_count":21636,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-297.31},{"run_id":"mkt_med_g3.0_jb_sluggish","gov_id":"mkt_med","category":"Market","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":816,"peak_debris_count":32146,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-427.88},{"run_id":"mkt_high_g1.0_exp_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":0.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":10355,"peak_debris_count":12681,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-42.95},{"run_id":"mkt_high_g1.0_exp_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":0.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":17158,"peak_debris_count":18867,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-36.81},{"run_id":"mkt_high_g1.0_jb_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":0.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":743,"peak_debris_count":8613,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-109.92},{"run_id":"mkt_high_g1.0_jb_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":0.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":703,"peak_debris_count":10613,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-153.07},{"run_id":"mkt_high_g2.0_exp_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":12734,"peak_debris_count":14843,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-41.04},{"run_id":"mkt_high_g2.0_exp_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":26984,"peak_debris_count":27933,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-17.36},{"run_id":"mkt_high_g2.0_jb_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":737,"peak_debris_count":9090,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-124.9},{"run_id":"mkt_high_g2.0_jb_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":779,"peak_debris_count":14674,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-209.88},{"run_id":"mkt_high_g3.0_exp_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":15146,"peak_debris_count":17009,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-38.52},{"run_id":"mkt_high_g3.0_exp_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":37507,"peak_debris_count":37747,"sustainable":false,"capacity_ok":false,"debris_growth_rate":12.56},{"run_id":"mkt_high_g3.0_jb_responsive","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":709,"peak_debris_count":9676,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-141.27},{"run_id":"mkt_high_g3.0_jb_sluggish","gov_id":"mkt_high","category":"Market","level":"High","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.5,"total_debris_final":760,"peak_debris_count":19179,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-287.01},{"run_id":"lib_low_g1.0_exp_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":45084,"peak_debris_count":45181,"sustainable":false,"capacity_ok":false,"debris_growth_rate":37.49},{"run_id":"lib_low_g1.0_exp_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":47494,"peak_debris_count":47568,"sustainable":false,"capacity_ok":false,"debris_growth_rate":46.74},{"run_id":"lib_low_g1.0_jb_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":801,"peak_debris_count":22665,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-314.83},{"run_id":"lib_low_g1.0_jb_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":807,"peak_debris_count":23163,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-329.11},{"run_id":"lib_low_g2.0_exp_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":91056,"peak_debris_count":91056,"sustainable":false,"capacity_ok":false,"debris_growth_rate":258.09},{"run_id":"lib_low_g2.0_exp_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":97367,"peak_debris_count":97367,"sustainable":false,"capacity_ok":false,"debris_growth_rate":298.9},{"run_id":"lib_low_g2.0_jb_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":858,"peak_debris_count":38255,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-527.9},{"run_id":"lib_low_g2.0_jb_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":868,"peak_debris_count":39793,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-547.09},{"run_id":"lib_low_g3.0_exp_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":146071,"peak_debris_count":146071,"sustainable":false,"capacity_ok":false,"debris_growth_rate":617.85},{"run_id":"lib_low_g3.0_exp_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":158139,"peak_debris_count":158139,"sustainable":false,"capacity_ok":false,"debris_growth_rate":715.12},{"run_id":"lib_low_g3.0_jb_responsive","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.65,"effective_pm":0.65,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":865,"peak_debris_count":53839,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-736.96},{"run_id":"lib_low_g3.0_jb_sluggish","gov_id":"lib_low","category":"Liability","level":"Low","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.65,"effective_pm":0.63,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":874,"peak_debris_count":56966,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-768.4},{"run_id":"lib_med_g1.0_exp_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":28045,"peak_debris_count":28933,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-15.02},{"run_id":"lib_med_g1.0_exp_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":36931,"peak_debris_count":37253,"sustainable":false,"capacity_ok":false,"debris_growth_rate":9.42},{"run_id":"lib_med_g1.0_jb_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":754,"peak_debris_count":15002,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-211.99},{"run_id":"lib_med_g1.0_jb_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":804,"peak_debris_count":19105,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-266.48},{"run_id":"lib_med_g2.0_exp_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":50934,"peak_debris_count":50979,"sustainable":false,"capacity_ok":false,"debris_growth_rate":59.63},{"run_id":"lib_med_g2.0_exp_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":71872,"peak_debris_count":71872,"sustainable":false,"capacity_ok":false,"debris_growth_rate":158.48},{"run_id":"lib_med_g2.0_jb_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":824,"peak_debris_count":24908,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-339.74},{"run_id":"lib_med_g2.0_jb_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":815,"peak_debris_count":31145,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-442.02},{"run_id":"lib_med_g3.0_exp_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":77392,"peak_debris_count":77392,"sustainable":false,"capacity_ok":false,"debris_growth_rate":187.58},{"run_id":"lib_med_g3.0_exp_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":111965,"peak_debris_count":111965,"sustainable":false,"capacity_ok":false,"debris_growth_rate":384.53},{"run_id":"lib_med_g3.0_jb_responsive","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.8,"effective_pm":0.8,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":859,"peak_debris_count":33546,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-466.41},{"run_id":"lib_med_g3.0_jb_sluggish","gov_id":"lib_med","category":"Liability","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.8,"effective_pm":0.72,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":806,"peak_debris_count":44251,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-620.13},{"run_id":"lib_high_g1.0_exp_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":12726,"peak_debris_count":14839,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-41.09},{"run_id":"lib_high_g1.0_exp_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":26983,"peak_debris_count":27931,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-17.39},{"run_id":"lib_high_g1.0_jb_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":758,"peak_debris_count":8879,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-125.45},{"run_id":"lib_high_g1.0_jb_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":1.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":728,"peak_debris_count":14798,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-209.86},{"run_id":"lib_high_g2.0_exp_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":17631,"peak_debris_count":19247,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-35.06},{"run_id":"lib_high_g2.0_exp_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":48688,"peak_debris_count":48744,"sustainable":false,"capacity_ok":false,"debris_growth_rate":53.41},{"run_id":"lib_high_g2.0_jb_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":752,"peak_debris_count":10708,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-153.83},{"run_id":"lib_high_g2.0_jb_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":758,"peak_debris_count":23448,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-327.13},{"run_id":"lib_high_g3.0_exp_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":22691,"peak_debris_count":23914,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-26.4},{"run_id":"lib_high_g3.0_exp_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":73383,"peak_debris_count":73383,"sustainable":false,"capacity_ok":false,"debris_growth_rate":170.14},{"run_id":"lib_high_g3.0_jb_responsive","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.95,"effective_pm":0.95,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":716,"peak_debris_count":12877,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-186.02},{"run_id":"lib_high_g3.0_jb_sluggish","gov_id":"lib_high","category":"Liability","level":"High","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.95,"effective_pm":0.8099999999999999,"eff_launch_scale":3.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":778,"peak_debris_count":32214,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-441.92},{"run_id":"stm_low_g1.0_exp_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":17640,"peak_debris_count":19281,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-35.6},{"run_id":"stm_low_g1.0_exp_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":30175,"peak_debris_count":30955,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-10.47},{"run_id":"stm_low_g1.0_jb_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":696,"peak_debris_count":10753,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-156.59},{"run_id":"stm_low_g1.0_jb_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":770,"peak_debris_count":16524,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-231.57},{"run_id":"stm_low_g2.0_exp_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":28017,"peak_debris_count":28907,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-15.03},{"run_id":"stm_low_g2.0_exp_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":56050,"peak_debris_count":56084,"sustainable":false,"capacity_ok":false,"debris_growth_rate":80.19},{"run_id":"stm_low_g2.0_jb_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":779,"peak_debris_count":15733,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-220.14},{"run_id":"stm_low_g2.0_jb_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":840,"peak_debris_count":26591,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-393.57},{"run_id":"stm_low_g3.0_exp_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":39232,"peak_debris_count":39423,"sustainable":false,"capacity_ok":false,"debris_growth_rate":18.08},{"run_id":"stm_low_g3.0_exp_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":85397,"peak_debris_count":85397,"sustainable":false,"capacity_ok":false,"debris_growth_rate":226.91},{"run_id":"stm_low_g3.0_jb_responsive","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":789,"peak_debris_count":19866,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-276.04},{"run_id":"stm_low_g3.0_jb_sluggish","gov_id":"stm_low","category":"Coordination","level":"Low","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":0.01,"slotting":0.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":813,"peak_debris_count":36531,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-499.63},{"run_id":"stm_med_g1.0_exp_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":17628,"peak_debris_count":19271,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-35.65},{"run_id":"stm_med_g1.0_exp_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":30172,"peak_debris_count":30943,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-10.17},{"run_id":"stm_med_g1.0_jb_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":730,"peak_debris_count":10733,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-153.29},{"run_id":"stm_med_g1.0_jb_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":737,"peak_debris_count":16001,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-227.79},{"run_id":"stm_med_g2.0_exp_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":28014,"peak_debris_count":28885,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-14.54},{"run_id":"stm_med_g2.0_exp_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":55853,"peak_debris_count":55882,"sustainable":false,"capacity_ok":false,"debris_growth_rate":78.86},{"run_id":"stm_med_g2.0_jb_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":807,"peak_debris_count":15115,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-215.82},{"run_id":"stm_med_g2.0_jb_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":772,"peak_debris_count":26224,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-363.42},{"run_id":"stm_med_g3.0_exp_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":39094,"peak_debris_count":39266,"sustainable":false,"capacity_ok":false,"debris_growth_rate":17.37},{"run_id":"stm_med_g3.0_exp_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":85727,"peak_debris_count":85727,"sustainable":false,"capacity_ok":false,"debris_growth_rate":231.82},{"run_id":"stm_med_g3.0_jb_responsive","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":839,"peak_debris_count":19737,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-289.19},{"run_id":"stm_med_g3.0_jb_sluggish","gov_id":"stm_med","category":"Coordination","level":"Medium","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":899,"peak_debris_count":36074,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-492.91},{"run_id":"stm_high_g1.0_exp_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":17621,"peak_debris_count":19267,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-35.69},{"run_id":"stm_high_g1.0_exp_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":30199,"peak_debris_count":30968,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-10.16},{"run_id":"stm_high_g1.0_jb_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":764,"peak_debris_count":10734,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-156.94},{"run_id":"stm_high_g1.0_jb_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":810,"peak_debris_count":16101,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-229.13},{"run_id":"stm_high_g2.0_exp_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":27985,"peak_debris_count":28872,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-15.01},{"run_id":"stm_high_g2.0_exp_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":55964,"peak_debris_count":55987,"sustainable":false,"capacity_ok":false,"debris_growth_rate":81.0},{"run_id":"stm_high_g2.0_jb_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":792,"peak_debris_count":15149,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-222.11},{"run_id":"stm_high_g2.0_jb_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":809,"peak_debris_count":26303,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-366.57},{"run_id":"stm_high_g3.0_exp_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":39196,"peak_debris_count":39350,"sustainable":false,"capacity_ok":false,"debris_growth_rate":18.96},{"run_id":"stm_high_g3.0_exp_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":85394,"peak_debris_count":85394,"sustainable":false,"capacity_ok":false,"debris_growth_rate":228.25},{"run_id":"stm_high_g3.0_jb_responsive","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":3.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":798,"peak_debris_count":19830,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-283.76},{"run_id":"stm_high_g3.0_jb_sluggish","gov_id":"stm_high","category":"Coordination","level":"High","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":3.0,"alpha":1e-06,"slotting":1.0,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":825,"peak_debris_count":36155,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-489.52},{"run_id":"mix_rules_stm_g1.0_exp_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":22731,"peak_debris_count":23979,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-26.97},{"run_id":"mix_rules_stm_g1.0_exp_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":33498,"peak_debris_count":34048,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-1.14},{"run_id":"mix_rules_stm_g1.0_jb_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":740,"peak_debris_count":13056,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-187.11},{"run_id":"mix_rules_stm_g1.0_jb_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":1.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":745,"peak_debris_count":17843,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-244.99},{"run_id":"mix_rules_stm_g2.0_exp_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":39152,"peak_debris_count":39340,"sustainable":false,"capacity_ok":false,"debris_growth_rate":17.17},{"run_id":"mix_rules_stm_g2.0_exp_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":63923,"peak_debris_count":63923,"sustainable":false,"capacity_ok":false,"debris_growth_rate":120.16},{"run_id":"mix_rules_stm_g2.0_jb_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":770,"peak_debris_count":20267,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-280.25},{"run_id":"mix_rules_stm_g2.0_jb_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":2.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":823,"peak_debris_count":29425,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-400.53},{"run_id":"mix_rules_stm_g3.0_exp_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":57293,"peak_debris_count":57305,"sustainable":false,"capacity_ok":false,"debris_growth_rate":88.55},{"run_id":"mix_rules_stm_g3.0_exp_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":98161,"peak_debris_count":98161,"sustainable":false,"capacity_ok":false,"debris_growth_rate":299.67},{"run_id":"mix_rules_stm_g3.0_jb_responsive","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.85,"effective_pm":0.85,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":772,"peak_debris_count":26497,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-362.96},{"run_id":"mix_rules_stm_g3.0_jb_sluggish","gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.85,"effective_pm":0.75,"eff_launch_scale":3.0,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":1.0,"total_debris_final":876,"peak_debris_count":40437,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-558.27},{"run_id":"mix_fees_enf_g1.0_exp_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":15156,"peak_debris_count":17039,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-38.93},{"run_id":"mix_fees_enf_g1.0_exp_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":24311,"peak_debris_count":25470,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-24.2},{"run_id":"mix_fees_enf_g1.0_jb_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":830,"peak_debris_count":9567,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-146.96},{"run_id":"mix_fees_enf_g1.0_jb_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":0.75,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":776,"peak_debris_count":13723,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-194.76},{"run_id":"mix_fees_enf_g2.0_exp_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":22721,"peak_debris_count":23955,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-26.6},{"run_id":"mix_fees_enf_g2.0_exp_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":42510,"peak_debris_count":42647,"sustainable":false,"capacity_ok":false,"debris_growth_rate":27.04},{"run_id":"mix_fees_enf_g2.0_jb_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":744,"peak_debris_count":13234,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-184.99},{"run_id":"mix_fees_enf_g2.0_jb_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.5,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":808,"peak_debris_count":21145,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-316.7},{"run_id":"mix_fees_enf_g3.0_exp_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":30639,"peak_debris_count":31370,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-8.72},{"run_id":"mix_fees_enf_g3.0_exp_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":62880,"peak_debris_count":62883,"sustainable":false,"capacity_ok":false,"debris_growth_rate":111.66},{"run_id":"mix_fees_enf_g3.0_jb_responsive","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":784,"peak_debris_count":16355,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-234.23},{"run_id":"mix_fees_enf_g3.0_jb_sluggish","gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.25,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":820,"peak_debris_count":29013,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-393.06},{"run_id":"mix_all_g1.0_exp_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":0.75,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":15167,"peak_debris_count":17044,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-38.83},{"run_id":"mix_all_g1.0_exp_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":0.75,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":24344,"peak_debris_count":25484,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-23.71},{"run_id":"mix_all_g1.0_jb_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":0.75,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":759,"peak_debris_count":9738,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-142.0},{"run_id":"mix_all_g1.0_jb_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":0.75,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":784,"peak_debris_count":13814,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-192.09},{"run_id":"mix_all_g2.0_exp_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.5,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":22730,"peak_debris_count":23957,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-26.5},{"run_id":"mix_all_g2.0_exp_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.5,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":42568,"peak_debris_count":42681,"sustainable":false,"capacity_ok":false,"debris_growth_rate":28.31},{"run_id":"mix_all_g2.0_jb_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":1.5,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":777,"peak_debris_count":12967,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-186.68},{"run_id":"mix_all_g2.0_jb_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":1.5,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":775,"peak_debris_count":21395,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-297.78},{"run_id":"mix_all_g3.0_exp_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.25,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":30725,"peak_debris_count":31413,"sustainable":true,"capacity_ok":false,"debris_growth_rate":-7.38},{"run_id":"mix_all_g3.0_exp_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.25,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":63049,"peak_debris_count":63052,"sustainable":false,"capacity_ok":false,"debris_growth_rate":113.34},{"run_id":"mix_all_g3.0_jb_responsive","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.9,"effective_pm":0.9,"eff_launch_scale":2.25,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":816,"peak_debris_count":16306,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-249.79},{"run_id":"mix_all_g3.0_jb_sluggish","gov_id":"mix_all","category":"Mix","level":"All Four","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.9,"effective_pm":0.78,"eff_launch_scale":2.25,"alpha":0.0001,"slotting":0.5,"deltat":8,"gov_launch_scale":0.75,"total_debris_final":811,"peak_debris_count":28930,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-392.86},{"run_id":"failure_g1.0_exp_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":1.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":106638,"peak_debris_count":106638,"sustainable":false,"capacity_ok":false,"debris_growth_rate":356.38},{"run_id":"failure_g1.0_exp_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":1.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":106403,"peak_debris_count":106403,"sustainable":false,"capacity_ok":false,"debris_growth_rate":353.88},{"run_id":"failure_g1.0_jb_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":1.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":773,"peak_debris_count":42458,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-596.19},{"run_id":"failure_g1.0_jb_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":1.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":2.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":855,"peak_debris_count":42542,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-592.27},{"run_id":"failure_g2.0_exp_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":2.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":4.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":251956,"peak_debris_count":251956,"sustainable":false,"capacity_ok":false,"debris_growth_rate":1472.6},{"run_id":"failure_g2.0_exp_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":2.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":4.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":251926,"peak_debris_count":251926,"sustainable":false,"capacity_ok":false,"debris_growth_rate":1471.79},{"run_id":"failure_g2.0_jb_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":2.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":4.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":969,"peak_debris_count":78409,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-1081.19},{"run_id":"failure_g2.0_jb_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":2.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":4.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":880,"peak_debris_count":77136,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-1042.13},{"run_id":"failure_g3.0_exp_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":3.0,"solar":"low","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":6.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":445905,"peak_debris_count":445905,"sustainable":false,"capacity_ok":false,"debris_growth_rate":3351.19},{"run_id":"failure_g3.0_exp_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":3.0,"solar":"low","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":6.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":435029,"peak_debris_count":435029,"sustainable":false,"capacity_ok":false,"debris_growth_rate":3152.7},{"run_id":"failure_g3.0_jb_responsive","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":3.0,"solar":"high","behavior":"responsive","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":6.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":1056,"peak_debris_count":114038,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-1586.13},{"run_id":"failure_g3.0_jb_sluggish","gov_id":"failure","category":"Failure","level":"Failure","launch_growth":3.0,"solar":"high","behavior":"sluggish","target_pm":0.6,"effective_pm":0.6,"eff_launch_scale":6.0,"alpha":1e-05,"slotting":1.0,"deltat":8,"gov_launch_scale":2.0,"total_debris_final":1029,"peak_debris_count":116875,"sustainable":true,"capacity_ok":true,"debris_growth_rate":-1595.4}];
+const SUMMARY  = [{"gov_id":"cnc_low","category":"C&C","level":"Low","debris_mean":97017,"debris_min":47392,"debris_max":149870,"pct_sustainable":0.0,"pct_capacity_ok":0.0,"pct_both_ok":0.0},{"gov_id":"cnc_med","category":"C&C","level":"Medium","debris_mean":61932,"debris_min":27950,"debris_max":109744,"pct_sustainable":0.0,"pct_capacity_ok":16.666666666666664,"pct_both_ok":0.0},{"gov_id":"cnc_high","category":"C&C","level":"High","debris_mean":33795,"debris_min":12717,"debris_max":73824,"pct_sustainable":66.66666666666666,"pct_capacity_ok":66.66666666666666,"pct_both_ok":66.7},{"gov_id":"mkt_low","category":"Market","level":"Low","debris_mean":85291,"debris_min":39246,"debris_max":141054,"pct_sustainable":0.0,"pct_capacity_ok":0.0,"pct_both_ok":0.0},{"gov_id":"mkt_med","category":"Market","level":"Medium","debris_mean":39991,"debris_min":18906,"debris_max":71924,"pct_sustainable":50.0,"pct_capacity_ok":33.33333333333333,"pct_both_ok":33.3},{"gov_id":"mkt_high","category":"Market","level":"High","debris_mean":19981,"debris_min":10355,"debris_max":37507,"pct_sustainable":83.33333333333334,"pct_capacity_ok":83.33333333333334,"pct_both_ok":83.3},{"gov_id":"lib_low","category":"Liability","level":"Low","debris_mean":97535,"debris_min":45084,"debris_max":158139,"pct_sustainable":0.0,"pct_capacity_ok":0.0,"pct_both_ok":0.0},{"gov_id":"lib_med","category":"Liability","level":"Medium","debris_mean":62856,"debris_min":28045,"debris_max":111965,"pct_sustainable":16.666666666666664,"pct_capacity_ok":16.666666666666664,"pct_both_ok":16.7},{"gov_id":"lib_high","category":"Liability","level":"High","debris_mean":33684,"debris_min":12726,"debris_max":73383,"pct_sustainable":66.66666666666666,"pct_capacity_ok":66.66666666666666,"pct_both_ok":66.7},{"gov_id":"stm_low","category":"Coordination","level":"Low","debris_mean":42752,"debris_min":17640,"debris_max":85397,"pct_sustainable":50.0,"pct_capacity_ok":33.33333333333333,"pct_both_ok":33.3},{"gov_id":"stm_med","category":"Coordination","level":"Medium","debris_mean":42748,"debris_min":17628,"debris_max":85727,"pct_sustainable":50.0,"pct_capacity_ok":33.33333333333333,"pct_both_ok":33.3},{"gov_id":"stm_high","category":"Coordination","level":"High","debris_mean":42726,"debris_min":17621,"debris_max":85394,"pct_sustainable":50.0,"pct_capacity_ok":33.33333333333333,"pct_both_ok":33.3},{"gov_id":"mix_rules_stm","category":"Mix","level":"Rules+Coord","debris_mean":52460,"debris_min":22731,"debris_max":98161,"pct_sustainable":33.33333333333333,"pct_capacity_ok":16.666666666666664,"pct_both_ok":16.7},{"gov_id":"mix_fees_enf","category":"Mix","level":"Fees+Enforce","debris_mean":33036,"debris_min":15156,"debris_max":62880,"pct_sustainable":66.66666666666666,"pct_capacity_ok":50.0,"pct_both_ok":50.0},{"gov_id":"mix_all","category":"Mix","level":"All Four","debris_mean":33097,"debris_min":15167,"debris_max":63049,"pct_sustainable":66.66666666666666,"pct_capacity_ok":50.0,"pct_both_ok":50.0},{"gov_id":"failure","category":"Failure","level":"Failure","debris_mean":266310,"debris_min":106403,"debris_max":445905,"pct_sustainable":0.0,"pct_capacity_ok":0.0,"pct_both_ok":0.0}];
+const TRAJ     = {"cnc_high_g1.0_exp_responsive":{"label":"C&C High \u2014 strong disposal rules","years":[0.0,0.5,1.01,1.51,2.01,2.51,3.02,3.52,4.02,4.52,5.03,5.53,6.03,6.53,7.04,7.54,8.04,8.54,9.05,9.55,10.05,10.55,11.06,11.56,12.06,12.56,13.07,13.57,14.07,14.57,15.08,15.58,16.08,16.58,17.09,17.59,18.09,18.59,19.1,19.6,20.1,20.6,21.11,21.61,22.11,22.61,23.12,23.62,24.12,24.62,25.13,25.63,26.13,26.63,27.14,27.64,28.14,28.64,29.15,29.65,30.15,30.65,31.16,31.66,32.16,32.66,33.17,33.67,34.17,34.67,35.18,35.68,36.18,36.68,37.19,37.69,38.19,38.69,39.2,39.7,40.2,40.7,41.21,41.71,42.21,42.71,43.22,43.72,44.22,44.72,45.23,45.73,46.23,46.73,47.24,47.74,48.24,48.74,49.25,49.75,50.25,50.75,51.26,51.76,52.26,52.76,53.27,53.77,54.27,54.77,55.28,55.78,56.28,56.78,57.29,57.79,58.29,58.79,59.3,59.8,60.3,60.8,61.31,61.81,62.31,62.81,63.32,63.82,64.32,64.82,65.33,65.83,66.33,66.83,67.34,67.84,68.34,68.84,69.35,69.85,70.35,70.85,71.36,71.86,72.36,72.86,73.37,73.87,74.37,74.87,75.38,75.88,76.38,76.88,77.39,77.89,78.39,78.89,79.4,79.9,80.4,80.9,81.41,81.91,82.41,82.91,83.42,83.92,84.42,84.92,85.43,85.93,86.43,86.93,87.44,87.94,88.44,88.94,89.45,89.95,90.45,90.95,91.46,91.96,92.46,92.96,93.47,93.97,94.47,94.97,95.48,95.98,96.48,96.98,97.49,97.99,98.49,98.99,99.5,100.0],"debris":[8573,8160,8089,8068,8045,8028,8012,8002,8003,7990,7979,7990,8003,8022,8035,8046,8066,8085,8113,8157,8209,8254,8280,8326,8379,8438,8478,8534,8580,8643,8713,8776,8853,8928,9005,9065,9158,9236,9309,9394,9478,9568,9637,9730,9802,9890,9987,10088,10174,10262,10338,10433,10538,10610,10695,10789,10903,10998,11094,11188,11270,11367,11482,11591,11683,11770,11854,11938,12037,12147,12238,12313,12418,12524,12630,12723,12811,12901,12983,13075,13181,13288,13386,13492,13592,13694,13792,13881,13981,14078,14171,14278,14382,14478,14588,14691,14770,14872,14987,15086,15183,15151,15112,15070,15024,14975,14924,14873,14821,14769,14718,14668,14618,14569,14521,14474,14428,14383,14339,14295,14253,14211,14170,14130,14091,14052,14014,13977,13941,13906,13871,13838,13805,13774,13743,13713,13684,13656,13628,13602,13576,13551,13526,13503,13480,13457,13436,13415,13394,13374,13355,13336,13318,13300,13283,13266,13249,13233,13217,13202,13186,13172,13157,13143,13129,13115,13102,13088,13075,13062,13050,13037,13025,13013,13001,12989,12977,12965,12953,12942,12930,12919,12908,12896,12885,12874,12863,12852,12841,12830,12819,12808,12797,12786,12775,12764,12753,12742,12730,12719],"sats":[12042,15676,19450,23371,27538,31770,36563,41031,43591,45977,48237,50779,53131,55413,57607,59716,61761,63777,65779,67697,69513,71315,73146,74745,76311,77722,79118,80394,81583,82718,83776,84794,86025,87072,88056,88909,89661,90370,91039,91617,92173,92670,93044,93427,93809,94136,94400,94655,94829,95034,95220,95400,95582,95707,95845,95949,96110,96188,96268,96287,96393,96486,96510,96571,96642,96661,96678,96741,96796,96844,96847,96884,96915,96912,96924,96940,96974,96955,96981,97011,97060,97008,96997,96998,97028,97007,96998,97016,97016,97051,97047,97049,97101,97084,97139,97136,97102,97144,97153,97138,97183,87944,79538,71931,65054,58828,53196,48103,43475,39305,35516,32114,29028,26246,23739,21471,19425,17580,15906,14391,13026,11785,10657,9640,8721,7889,7135,6453,5836,5277,4772,4315,3902,3528,3191,2885,2609,2360,2134,1930,1745,1578,1427,1290,1166,1054,954,862,779,705,637,576,521,471,426,385,348,315,285,258,233,211,190,172,156,141,127,115,104,94,85,77,70,63,57,52,47,42,38,34,31,28,26,23,21,19,17,15,14,13,11,10,9,8,8,7,6,6,5,5]},"cnc_high_g2.0_exp_sluggish":{"label":"C&C High + 2\u00d7 growth + sluggish (vulnerability)","years":[0.0,0.5,1.01,1.51,2.01,2.51,3.02,3.52,4.02,4.52,5.03,5.53,6.03,6.53,7.04,7.54,8.04,8.54,9.05,9.55,10.05,10.55,11.06,11.56,12.06,12.56,13.07,13.57,14.07,14.57,15.08,15.58,16.08,16.58,17.09,17.59,18.09,18.59,19.1,19.6,20.1,20.6,21.11,21.61,22.11,22.61,23.12,23.62,24.12,24.62,25.13,25.63,26.13,26.63,27.14,27.64,28.14,28.64,29.15,29.65,30.15,30.65,31.16,31.66,32.16,32.66,33.17,33.67,34.17,34.67,35.18,35.68,36.18,36.68,37.19,37.69,38.19,38.69,39.2,39.7,40.2,40.7,41.21,41.71,42.21,42.71,43.22,43.72,44.22,44.72,45.23,45.73,46.23,46.73,47.24,47.74,48.24,48.74,49.25,49.75,50.25,50.75,51.26,51.76,52.26,52.76,53.27,53.77,54.27,54.77,55.28,55.78,56.28,56.78,57.29,57.79,58.29,58.79,59.3,59.8,60.3,60.8,61.31,61.81,62.31,62.81,63.32,63.82,64.32,64.82,65.33,65.83,66.33,66.83,67.34,67.84,68.34,68.84,69.35,69.85,70.35,70.85,71.36,71.86,72.36,72.86,73.37,73.87,74.37,74.87,75.38,75.88,76.38,76.88,77.39,77.89,78.39,78.89,79.4,79.9,80.4,80.9,81.41,81.91,82.41,82.91,83.42,83.92,84.42,84.92,85.43,85.93,86.43,86.93,87.44,87.94,88.44,88.94,89.45,89.95,90.45,90.95,91.46,91.96,92.46,92.96,93.47,93.97,94.47,94.97,95.48,95.98,96.48,96.98,97.49,97.99,98.49,98.99,99.5,100.0],"debris":[8573,8273,8276,8331,8386,8447,8512,8581,8657,8722,8795,8899,9017,9151,9291,9439,9608,9787,9987,10214,10459,10709,10952,11226,11517,11823,12118,12439,12757,13100,13458,13818,14201,14592,14997,15391,15824,16249,16675,17117,17564,18021,18460,18925,19373,19840,20317,20800,21268,21740,22201,22683,23176,23637,24111,24596,25102,25590,26079,26566,27043,27537,28048,28553,29043,29530,30012,30495,30995,31506,31999,32477,32986,33496,34007,34506,35001,35499,35990,36492,37010,37528,38038,38557,39070,39587,40100,40606,41123,41638,42151,42678,43204,43724,44258,44788,45292,45822,46366,46896,47424,47747,47992,48188,48346,48473,48575,48656,48721,48773,48815,48848,48874,48893,48906,48915,48919,48919,48916,48911,48903,48892,48881,48868,48854,48839,48824,48809,48794,48779,48765,48752,48739,48727,48716,48706,48697,48689,48682,48677,48672,48668,48666,48664,48663,48663,48664,48666,48669,48672,48676,48680,48685,48691,48696,48702,48709,48715,48722,48729,48736,48743,48750,48757,48764,48770,48777,48783,48789,48795,48800,48805,48810,48814,48818,48821,48824,48827,48828,48830,48830,48830,48830,48828,48826,48823,48820,48816,48811,48805,48799,48791,48783,48774,48764,48753,48741,48729,48715,48700],"sats":[12042,20460,29044,37809,46976,56231,66516,76095,81788,87082,92066,97572,102660,107569,112265,116764,121109,125384,129598,133627,137429,141177,144976,148297,151537,154464,157349,159986,162440,164782,166961,169049,171565,173704,175714,177457,178997,180443,181808,182992,184129,185143,185908,186691,187470,188136,188679,189199,189558,189977,190358,190725,191097,191353,191636,191846,192174,192335,192498,192538,192757,192947,192997,193121,193269,193312,193343,193468,193581,193678,193685,193759,193823,193819,193844,193877,193944,193903,193956,194016,194114,194011,193990,193994,194056,194015,193996,194031,194034,194102,194095,194098,194203,194170,194279,194273,194205,194289,194306,194278,194394,175920,159129,143905,130143,117702,106450,96278,87077,78753,71227,64418,58261,52700,47664,43117,38998,35275,31907,28856,26099,23605,21346,19303,17455,15782,14270,12904,11667,10550,9540,8627,7801,7055,6380,5769,5218,4718,4266,3858,3488,3154,2852,2578,2331,2108,1906,1724,1559,1410,1275,1153,1042,943,852,771,697,630,570,515,466,421,381,344,312,282,255,230,208,188,170,154,139,126,114,103,93,84,76,69,62,56,51,46,42,38,34,31,28,25,23,21,19,17,15,14,13,11,10,9]},"cnc_med_g1.0_exp_responsive":{"label":"C&C Medium \u2014 baseline governance","years":[0.0,0.5,1.01,1.51,2.01,2.51,3.02,3.52,4.02,4.52,5.03,5.53,6.03,6.53,7.04,7.54,8.04,8.54,9.05,9.55,10.05,10.55,11.06,11.56,12.06,12.56,13.07,13.57,14.07,14.57,15.08,15.58,16.08,16.58,17.09,17.59,18.09,18.59,19.1,19.6,20.1,20.6,21.11,21.61,22.11,22.61,23.12,23.62,24.12,24.62,25.13,25.63,26.13,26.63,27.14,27.64,28.14,28.64,29.15,29.65,30.15,30.65,31.16,31.66,32.16,32.66,33.17,33.67,34.17,34.67,35.18,35.68,36.18,36.68,37.19,37.69,38.19,38.69,39.2,39.7,40.2,40.7,41.21,41.71,42.21,42.71,43.22,43.72,44.22,44.72,45.23,45.73,46.23,46.73,47.24,47.74,48.24,48.74,49.25,49.75,50.25,50.75,51.26,51.76,52.26,52.76,53.27,53.77,54.27,54.77,55.28,55.78,56.28,56.78,57.29,57.79,58.29,58.79,59.3,59.8,60.3,60.8,61.31,61.81,62.31,62.81,63.32,63.82,64.32,64.82,65.33,65.83,66.33,66.83,67.34,67.84,68.34,68.84,69.35,69.85,70.35,70.85,71.36,71.86,72.36,72.86,73.37,73.87,74.37,74.87,75.38,75.88,76.38,76.88,77.39,77.89,78.39,78.89,79.4,79.9,80.4,80.9,81.41,81.91,82.41,82.91,83.42,83.92,84.42,84.92,85.43,85.93,86.43,86.93,87.44,87.94,88.44,88.94,89.45,89.95,90.45,90.95,91.46,91.96,92.46,92.96,93.47,93.97,94.47,94.97,95.48,95.98,96.48,96.98,97.49,97.99,98.49,98.99,99.5,100.0],"debris":[8573,8184,8127,8120,8113,8112,8113,8121,8140,8146,8155,8188,8225,8270,8312,8353,8407,8461,8528,8613,8708,8801,8878,8977,9087,9205,9307,9429,9543,9678,9822,9964,10122,10281,10447,10598,10786,10961,11135,11324,11514,11714,11894,12101,12290,12498,12716,12941,13153,13369,13574,13801,14039,14246,14468,14701,14955,15191,15430,15668,15895,16139,16402,16660,16903,17142,17379,17616,17869,18135,18383,18615,18879,19144,19410,19664,19913,20166,20411,20668,20939,21211,21475,21747,22014,22283,22550,22808,23078,23344,23608,23886,24162,24430,24713,24990,25242,25519,25809,26083,26356,26493,26614,26724,26826,26918,27003,27082,27155,27224,27289,27349,27407,27461,27512,27560,27605,27647,27686,27723,27757,27789,27818,27846,27871,27894,27915,27935,27953,27970,27985,27999,28012,28023,28034,28044,28054,28062,28070,28077,28084,28091,28097,28102,28108,28113,28117,28122,28126,28129,28133,28136,28139,28141,28144,28146,28148,28149,28150,28151,28152,28152,28152,28152,28151,28151,28150,28149,28147,28145,28144,28141,28139,28136,28134,28130,28127,28123,28119,28115,28111,28106,28101,28095,28089,28083,28077,28070,28063,28056,28048,28040,28032,28023,28014,28004,27994,27984,27973,27962],"sats":[12042,16474,21225,26298,31807,37571,44092,50490,55097,59583,63990,68725,73327,77893,82409,86870,91291,95703,100114,104458,108704,112942,117213,121250,125244,129072,132866,136518,140054,143510,146855,150123,153582,156828,159979,162963,165805,168561,171230,173765,176229,178585,180767,182904,184991,186972,188842,190650,192327,193983,195574,197109,198603,199994,201355,202634,203934,205110,206247,207282,208370,209408,210341,211276,212192,213022,213814,214624,215401,216143,216814,217492,218139,218731,219311,219873,220431,220918,221425,221922,222419,222797,223197,223592,224002,224344,224682,225034,225356,225698,225991,226278,226602,226849,227157,227399,227597,227865,228090,228283,228548,219241,210256,201632,193363,185433,177829,170536,163542,156835,150402,144235,138297,132606,127162,121924,116902,112103,107498,103077,98837,94775,90884,87155,83581,80152,76865,73719,70702,67808,65030,62364,59814,57368,55021,52767,50601,48528,46540,44633,42805,41052,39369,37754,36206,34720,33296,31931,30620,29363,28157,27001,25893,24831,23812,22834,21896,20998,20136,19311,18518,17759,17030,16331,15662,15019,14403,13812,13246,12702,12181,11682,11202,10742,10301,9878,9472,9084,8711,8353,8010,7680,7365,7062,6773,6495,6228,5972,5726,5491,5266,5050,4843,4644,4453,4270,4095,3927,3766,3612]},"failure_g3.0_exp_sluggish":{"label":"Governance failure + 3\u00d7 growth + sluggish (worst case)","years":[0.0,0.5,1.01,1.51,2.01,2.51,3.02,3.52,4.02,4.52,5.03,5.53,6.03,6.53,7.04,7.54,8.04,8.54,9.05,9.55,10.05,10.55,11.06,11.56,12.06,12.56,13.07,13.57,14.07,14.57,15.08,15.58,16.08,16.58,17.09,17.59,18.09,18.59,19.1,19.6,20.1,20.6,21.11,21.61,22.11,22.61,23.12,23.62,24.12,24.62,25.13,25.63,26.13,26.63,27.14,27.64,28.14,28.64,29.15,29.65,30.15,30.65,31.16,31.66,32.16,32.66,33.17,33.67,34.17,34.67,35.18,35.68,36.18,36.68,37.19,37.69,38.19,38.69,39.2,39.7,40.2,40.7,41.21,41.71,42.21,42.71,43.22,43.72,44.22,44.72,45.23,45.73,46.23,46.73,47.24,47.74,48.24,48.74,49.25,49.75,50.25,50.75,51.26,51.76,52.26,52.76,53.27,53.77,54.27,54.77,55.28,55.78,56.28,56.78,57.29,57.79,58.29,58.79,59.3,59.8,60.3,60.8,61.31,61.81,62.31,62.81,63.32,63.82,64.32,64.82,65.33,65.83,66.33,66.83,67.34,67.84,68.34,68.84,69.35,69.85,70.35,70.85,71.36,71.86,72.36,72.86,73.37,73.87,74.37,74.87,75.38,75.88,76.38,76.88,77.39,77.89,78.39,78.89,79.4,79.9,80.4,80.9,81.41,81.91,82.41,82.91,83.42,83.92,84.42,84.92,85.43,85.93,86.43,86.93,87.44,87.94,88.44,88.94,89.45,89.95,90.45,90.95,91.46,91.96,92.46,92.96,93.47,93.97,94.47,94.97,95.48,95.98,96.48,96.98,97.49,97.99,98.49,98.99,99.5,100.0],"debris":[8573,8428,8646,8947,9275,9628,10004,10396,10790,11191,11629,12145,12724,13370,14073,14836,15673,16575,17556,18620,19758,20961,22217,23562,24977,26462,27993,29599,31254,32985,34782,36632,38566,40570,42646,44766,46972,49222,51520,53879,56290,58755,61243,63794,66372,69004,71683,74402,77140,79916,82716,85571,88470,91370,94317,97307,100357,103422,106521,109647,112800,116004,119256,122537,125838,129169,132528,135924,139372,142867,146376,149906,153504,157139,160812,164508,168236,172005,175802,179650,183550,187487,191451,195463,199506,203589,207705,211852,216048,220282,224554,228878,233242,237638,242088,246573,251070,255635,260254,264899,269580,273810,277741,281477,285056,288491,291800,294999,298097,301104,304033,306884,309670,312389,315047,317647,320187,322673,325103,327482,329811,332092,334329,336524,338677,340793,342872,344918,346930,348912,350865,352790,354688,356560,358409,360234,362037,363818,365578,367318,369039,370741,372424,374090,375738,377368,378982,380579,382160,383725,385274,386806,388323,389825,391311,392781,394236,395675,397100,398509,399902,401281,402644,403992,405324,406641,407942,409228,410498,411753,412992,414216,415423,416615,417791,418951,420094,421222,422334,423429,424508,425570,426616,427646,428659,429655,430634,431597,432542,433470,434381,435275,436152,437010,437852,438675,439481,440269,441039,441791],"sats":[12042,40556,70305,101283,134219,168037,205672,241872,266765,290599,313587,338188,361658,384616,406979,428760,450028,471066,491894,512117,531608,550854,570186,587969,605430,621801,637905,653111,667593,681572,694877,707723,721704,734442,746620,757837,768260,778201,787721,796507,804962,812864,819801,826616,833212,839307,844842,850128,854755,859381,863742,867909,871934,875480,878956,882102,885458,888192,890815,892994,895542,897926,899824,901799,903767,905351,906807,908483,910051,911500,912627,913883,915046,915966,916912,917834,918815,919420,920275,921119,922027,922307,922787,923310,923980,924307,924680,925186,925570,926145,926459,926788,927375,927577,928167,928410,928461,928927,929199,929336,928420,872304,819338,769451,722545,678501,637160,598323,561874,527660,495539,465390,437065,410479,385507,362042,340018,319318,299904,281673,264533,248444,233345,219151,205812,193304,181547,170488,160115,150373,141227,132630,124553,116967,109845,103153,96865,90961,85420,80215,75325,70733,66424,62379,58578,55008,51658,48513,45558,42782,40177,37731,35431,33270,31241,29337,27551,25869,24290,22808,21417,20113,18885,17732,16650,15636,14684,13788,12947,12158,11417,10722,10068,9454,8878,8338,7830,7352,6904,6483,6088,5717,5368,5040,4733,4444,4173,3919,3680,3455,3245,3047,2861,2687,2523,2369,2225,2090,1962,1843]},"mkt_high_g1.0_exp_responsive":{"label":"Market High \u2014 fees + disposal (most robust)","years":[0.0,0.5,1.01,1.51,2.01,2.51,3.02,3.52,4.02,4.52,5.03,5.53,6.03,6.53,7.04,7.54,8.04,8.54,9.05,9.55,10.05,10.55,11.06,11.56,12.06,12.56,13.07,13.57,14.07,14.57,15.08,15.58,16.08,16.58,17.09,17.59,18.09,18.59,19.1,19.6,20.1,20.6,21.11,21.61,22.11,22.61,23.12,23.62,24.12,24.62,25.13,25.63,26.13,26.63,27.14,27.64,28.14,28.64,29.15,29.65,30.15,30.65,31.16,31.66,32.16,32.66,33.17,33.67,34.17,34.67,35.18,35.68,36.18,36.68,37.19,37.69,38.19,38.69,39.2,39.7,40.2,40.7,41.21,41.71,42.21,42.71,43.22,43.72,44.22,44.72,45.23,45.73,46.23,46.73,47.24,47.74,48.24,48.74,49.25,49.75,50.25,50.75,51.26,51.76,52.26,52.76,53.27,53.77,54.27,54.77,55.28,55.78,56.28,56.78,57.29,57.79,58.29,58.79,59.3,59.8,60.3,60.8,61.31,61.81,62.31,62.81,63.32,63.82,64.32,64.82,65.33,65.83,66.33,66.83,67.34,67.84,68.34,68.84,69.35,69.85,70.35,70.85,71.36,71.86,72.36,72.86,73.37,73.87,74.37,74.87,75.38,75.88,76.38,76.88,77.39,77.89,78.39,78.89,79.4,79.9,80.4,80.9,81.41,81.91,82.41,82.91,83.42,83.92,84.42,84.92,85.43,85.93,86.43,86.93,87.44,87.94,88.44,88.94,89.45,89.95,90.45,90.95,91.46,91.96,92.46,92.96,93.47,93.97,94.47,94.97,95.48,95.98,96.48,96.98,97.49,97.99,98.49,98.99,99.5,100.0],"debris":[8573,8146,8067,8039,8009,7985,7962,7945,7939,7920,7902,7905,7908,7917,7919,7918,7925,7929,7942,7970,8003,8030,8037,8063,8095,8132,8149,8182,8204,8242,8286,8325,8375,8422,8471,8502,8565,8614,8657,8712,8765,8824,8862,8924,8965,9022,9088,9158,9213,9271,9315,9380,9454,9496,9550,9613,9697,9761,9827,9890,9943,10010,10095,10173,10236,10294,10348,10402,10471,10552,10614,10659,10735,10811,10888,10952,11011,11071,11123,11186,11263,11340,11409,11485,11555,11628,11697,11757,11828,11896,11960,12038,12112,12179,12259,12333,12382,12455,12541,12610,12678,12625,12572,12520,12468,12415,12363,12311,12260,12211,12162,12115,12069,12025,11981,11939,11898,11858,11819,11780,11743,11706,11670,11635,11601,11567,11534,11501,11470,11438,11408,11378,11349,11321,11293,11266,11240,11215,11190,11166,11142,11119,11097,11075,11054,11033,11013,10994,10974,10956,10938,10920,10903,10886,10869,10853,10838,10822,10807,10793,10778,10764,10750,10737,10724,10711,10698,10685,10673,10661,10649,10637,10625,10614,10603,10592,10581,10570,10559,10548,10538,10528,10517,10507,10497,10487,10477,10467,10458,10448,10438,10429,10419,10410,10400,10391,10382,10372,10363,10354],"sats":[12042,13747,15595,17588,19776,22065,24711,27269,28914,30492,32026,33717,35336,36935,38503,40039,41551,43055,44563,46032,47453,48865,50294,51608,52904,54119,55320,56456,57540,58589,59590,60559,61629,62600,63531,64387,65180,65940,66668,67337,67983,68586,69113,69632,70138,70604,71025,71428,71779,72131,72463,72781,73090,73359,73624,73864,74122,74330,74530,74691,74888,75071,75212,75364,75517,75636,75746,75875,75996,76108,76193,76289,76379,76448,76520,76590,76666,76714,76779,76843,76914,76933,76968,77007,77060,77083,77110,77149,77178,77222,77245,77270,77319,77332,77379,77397,77398,77436,77458,77466,77513,72802,68370,64207,60298,56627,53179,49942,46901,44041,41348,38827,36448,34224,32136,30173,28330,26604,24983,23461,22035,20696,19437,18256,17147,16105,15125,14206,13343,12530,11769,11054,10382,9749,9157,8601,8078,7586,7125,6693,6285,5902,5543,5206,4890,4592,4313,4050,3803,3572,3354,3149,2957,2777,2608,2449,2299,2159,2027,1904,1788,1679,1576,1480,1390,1306,1226,1151,1081,1015,953,895,841,790,741,696,654,614,576,541,508,477,448,421,395,371,348,327,307,288,271,254,239,224,211,198,186,174,164,154]}};
+
+// ── Trajectory run IDs with matching keys ─────────────────────────────────
+const TRAJ_KEYS = Object.keys(TRAJ);
+const REF_FAILURE = 'failure_g3.0_exp_sluggish';
+const REF_BEST    = 'mkt_high_g1.0_exp_responsive';
+
+// ── Chart.js defaults ──────────────────────────────────────────────────────
+Chart.defaults.color = '#7b93b8';
+Chart.defaults.borderColor = '#1e2d4a';
+Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif";
+
+// ── State ──────────────────────────────────────────────────────────────────
+let rankingChart = null;
+let trajChart    = null;
+let currentRun   = null;
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function fmtNum(n) {
+  if (n == null || isNaN(n)) return '—';
+  return Math.round(n).toLocaleString();
+}
+function fmtAlpha(log) {
+  const exp = Math.round(log);
+  const mantissa = Math.pow(10, log - Math.floor(log));
+  if (Math.abs(mantissa - 1) < 0.05) return `1×10${superscript(Math.floor(log))}`;
+  return `${mantissa.toFixed(1)}×10${superscript(Math.floor(log))}`;
+}
+function superscript(n) {
+  const map = {'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³',
+               '4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  return String(n).split('').map(c=>map[c]||c).join('');
+}
+
+// ── Find nearest campaign run ──────────────────────────────────────────────
+function findNearest(pm, launchGrowth, behavior, solarToggle, alphaLog) {
+  const solarVal    = solarToggle ? 'high' : 'low';
+  const behaviorVal = behavior    ? 'sluggish' : 'responsive';
+
+  const filtered = CAMPAIGN.filter(r => r.solar === solarVal && r.behavior === behaviorVal);
+  if (!filtered.length) return null;
+
+  // Normalised distance: Pm dominant (weight 3), launch secondary (weight 1.5), alpha negligible (0.15)
+  const pmRange     = [0.60, 0.95];
+  const launchRange = [0.5, 6.0];
+  const alphaRange  = [-6, -2];
+
+  let best = null, bestDist = Infinity;
+  for (const run of filtered) {
+    const nPm     = (run.effective_pm    - pmRange[0])     / (pmRange[1]     - pmRange[0]);
+    const nPmU    = (pm                  - pmRange[0])     / (pmRange[1]     - pmRange[0]);
+    const nL      = (run.eff_launch_scale - launchRange[0]) / (launchRange[1] - launchRange[0]);
+    const nLU     = (launchGrowth * run.gov_launch_scale / run.gov_launch_scale - launchRange[0]) / (launchRange[1] - launchRange[0]);
+    // For launch: user sets growth (1-3x); gov_launch_scale varies by config
+    // Best proxy: compare user's effective launch (pm-matched growth * any gov scale) vs run's eff_launch_scale
+    const effLU   = launchGrowth;  // user's growth; will be combined with gov scale per run
+    const nLU2    = (effLU * run.gov_launch_scale - launchRange[0]) / (launchRange[1] - launchRange[0]);
+    const nA      = (Math.log10(run.alpha) - alphaRange[0]) / (alphaRange[1] - alphaRange[0]);
+    const nAU     = (alphaLog              - alphaRange[0]) / (alphaRange[1] - alphaRange[0]);
+
+    const dist = 3.0 * Math.pow(nPm - nPmU, 2)
+               + 1.5 * Math.pow(nL  - nLU2, 2)
+               + 0.15 * Math.pow(nA - nAU, 2);
+
+    if (dist < bestDist) { bestDist = dist; best = run; }
+  }
+  return best;
+}
+
+// ── Debris color tier ─────────────────────────────────────────────────────
+function debrisColor(n) {
+  if (n < 18000)  return 'green';
+  if (n < 30000)  return 'yellow';
+  if (n < 60000)  return 'orange';
+  return 'red';
+}
+
+// ── Interpretation text ───────────────────────────────────────────────────
+function interpretRun(run) {
+  const d = run.total_debris_final;
+  const s = run.sustainable;
+  const c = run.capacity_ok;
+  const slug = run.behavior === 'sluggish';
+  const govName = `${run.category} ${run.level}`;
+
+  if (s && c) {
+    if (d < 15000) return `This governance regime keeps debris well below baseline. The orbital environment stabilises at ${fmtNum(d)} objects — a sustainable outcome even under uncertain futures.`;
+    return `This regime stabilises the orbital environment. Debris plateaus at ${fmtNum(d)} objects, within safe capacity and on a declining trend.`;
+  }
+  if (s && !c) {
+    return `Debris growth is arrested — the trend is flat or falling — but the stock (${fmtNum(d)} objects) already exceeds the 30,000 capacity threshold. Better compliance would be needed to recover.`;
+  }
+  if (!s && c) {
+    return `Debris remains below the 30,000 capacity limit (${fmtNum(d)} objects) but the long-run trend is upward. Without stronger governance, this trajectory becomes unsustainable within the century.`;
+  }
+  // Both fail
+  if (d > 200000) return `Governance collapse. Debris reaches ${fmtNum(d)} objects — cascade dynamics are irreversible at this scale. The orbital commons is effectively lost.`;
+  if (d > 80000)  return `This regime fails badly. Debris surges to ${fmtNum(d)} objects, far beyond safe limits. ${slug ? 'Sluggish operator response compounds the failure.' : 'Even responsive operators cannot compensate.'}`;
+  return `This regime fails both thresholds. Debris reaches ${fmtNum(d)} objects with an upward trend. ${slug ? 'Partial behavioral compliance significantly worsens outcomes compared to full compliance.' : 'Stronger disposal rules or lower launch volume are needed.'}`;
+}
+
+function interpretClass(run) {
+  if (run.sustainable && run.capacity_ok) return 'pass';
+  if (!run.sustainable && !run.capacity_ok) return 'fail';
+  return 'warn';
+}
+
+// ── Update results panel ──────────────────────────────────────────────────
+function updateResults(run) {
+  if (!run) return;
+  currentRun = run;
+  const d = run.total_debris_final;
+  const color = debrisColor(d);
+
+  // Debris number with pulse animation
+  const numEl = document.getElementById('debris-number');
+  numEl.textContent = fmtNum(d);
+  numEl.className = 'debris-number ' + color;
+  numEl.classList.add('pulse');
+  setTimeout(() => numEl.classList.remove('pulse'), 400);
+
+  // Badges
+  const badgesEl = document.getElementById('badges-row');
+  badgesEl.innerHTML = '';
+  const mkBadge = (text, type) => {
+    const b = document.createElement('div');
+    b.className = `badge badge-${type}`;
+    b.innerHTML = `<div class="badge-dot"></div>${text}`;
+    badgesEl.appendChild(b);
+  };
+  mkBadge(`Sustainability: ${run.sustainable ? 'PASS' : 'FAIL'}`, run.sustainable ? 'pass' : 'fail');
+  mkBadge(`Capacity: ${run.capacity_ok ? 'PASS' : 'FAIL'}`, run.capacity_ok ? 'pass' : 'fail');
+
+  // Interpretation
+  const intEl = document.getElementById('interpretation-box');
+  intEl.textContent = interpretRun(run);
+  intEl.className = 'interpretation ' + interpretClass(run);
+
+  // Metrics
+  document.getElementById('peak-debris').textContent   = fmtNum(run.peak_debris_count);
+  document.getElementById('eff-pm').textContent        = run.effective_pm.toFixed(2);
+  document.getElementById('eff-launch').textContent    = run.eff_launch_scale.toFixed(2) + '×';
+  const trend = run.debris_growth_rate;
+  const trendEl = document.getElementById('debris-trend');
+  trendEl.textContent = (trend >= 0 ? '+' : '') + trend.toFixed(0);
+  trendEl.style.color = trend <= 0 ? 'var(--green)' : trend < 200 ? 'var(--orange)' : 'var(--red)';
+
+  // Matched config params
+  const paramsEl = document.getElementById('eff-params-row');
+  paramsEl.innerHTML = [
+    `<span class="eff-param"><span>config</span> ${run.gov_id}</span>`,
+    `<span class="eff-param"><span>Pm</span> ${run.effective_pm.toFixed(2)}</span>`,
+    `<span class="eff-param"><span>Δt</span> ${run.deltat} yr</span>`,
+    `<span class="eff-param"><span>launch</span> ${run.eff_launch_scale.toFixed(2)}×</span>`,
+    `<span class="eff-param"><span>solar</span> ${run.solar}</span>`,
+    `<span class="eff-param"><span>behavior</span> ${run.behavior}</span>`,
+  ].join('');
+
+  // Match info sidebar
+  document.getElementById('match-gov-label').innerHTML =
+    `<strong>${run.category} — ${run.level}</strong><br><span style="color:var(--muted);font-size:11px">${run.run_id}</span>`;
+  document.getElementById('match-chip-wrap').innerHTML =
+    `<span class="match-chip">${run.solar === 'low' ? 'Conservative atm' : 'Variable solar'}</span>
+     <span class="match-chip">${run.behavior}</span>`;
+}
+
+// ── Ranking chart (horizontal bar) ────────────────────────────────────────
+function buildRankingChart(highlightGovId) {
+  // Sort by pct_both_ok desc, then debris_mean asc
+  const sorted = [...SUMMARY].sort((a,b) =>
+    b.pct_both_ok - a.pct_both_ok || a.debris_mean - b.debris_mean
+  );
+
+  const labels   = sorted.map(d => `${d.gov_id}`);
+  const values   = sorted.map(d => d.pct_both_ok);
+  const catColor = {
+    'C&C':          '#3b82f6',
+    'Market':       '#10b981',
+    'Liability':    '#8b5cf6',
+    'Coordination': '#f59e0b',
+    'Mix':          '#06b6d4',
+    'Failure':      '#ef4444',
+  };
+  const bgColors = sorted.map(d => {
+    const base = catColor[d.category] || '#6b7280';
+    const isHL = d.gov_id === highlightGovId;
+    return isHL ? base : base + '55';
+  });
+  const borderColors = sorted.map(d => {
+    const base = catColor[d.category] || '#6b7280';
+    const isHL = d.gov_id === highlightGovId;
+    return isHL ? base : base + '33';
+  });
+  const borderWidths = sorted.map(d => d.gov_id === highlightGovId ? 2 : 0);
+
+  const niceName = d => `${d.category.substring(0,3)} ${d.level.substring(0,8)}`;
+  const niceLabels = sorted.map(niceName);
+
+  if (rankingChart) {
+    rankingChart.data.labels                       = niceLabels;
+    rankingChart.data.datasets[0].data             = values;
+    rankingChart.data.datasets[0].backgroundColor  = bgColors;
+    rankingChart.data.datasets[0].borderColor       = borderColors;
+    rankingChart.data.datasets[0].borderWidth       = borderWidths;
+    rankingChart.update('none');
+    return;
+  }
+
+  const ctx = document.getElementById('ranking-chart').getContext('2d');
+  rankingChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: niceLabels,
+      datasets: [{
+        data: values,
+        backgroundColor: bgColors,
+        borderColor: borderColors,
+        borderWidth: borderWidths,
+        borderRadius: 4,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 250 },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => {
+              const idx = items[0].dataIndex;
+              return `${sorted[idx].category} — ${sorted[idx].level}`;
+            },
+            label: (item) => {
+              const d = sorted[item.dataIndex];
+              return [
+                ` Robustness: ${item.raw}%`,
+                ` Mean debris: ${fmtNum(d.debris_mean)}`,
+                ` Range: ${fmtNum(d.debris_min)} – ${fmtNum(d.debris_max)}`,
+              ];
+            }
+          },
+          backgroundColor: '#0d1322',
+          borderColor: '#1e2d4a',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#7b93b8',
+          padding: 10,
+        }
+      },
+      scales: {
+        x: {
+          min: 0, max: 100,
+          grid: { color: '#1e2d4a' },
+          ticks: {
+            callback: v => v + '%',
+            font: { size: 11 },
+          },
+          title: { display: true, text: '% of 6 low-solar cells passing both thresholds', font: { size: 11 } }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { size: 11 } }
+        }
+      }
+    }
+  });
+}
+
+// ── Trajectory chart ─────────────────────────────────────────────────────
+function buildTrajChart(matchRunId) {
+  // Always show reference lines
+  const failure = TRAJ[REF_FAILURE];
+  const best    = TRAJ[REF_BEST];
+
+  // Find which traj key matches the nearest run
+  let selectedKey = null;
+  let selectedLabel = null;
+  if (matchRunId && TRAJ[matchRunId] && matchRunId !== REF_FAILURE && matchRunId !== REF_BEST) {
+    selectedKey   = matchRunId;
+    selectedLabel = TRAJ[matchRunId].label;
+  }
+
+  // Build note text
+  const noteEl = document.getElementById('traj-note');
+  if (selectedKey) {
+    noteEl.textContent = `Selected: "${selectedLabel}" — showing full 100-year debris trajectory.`;
+  } else {
+    // Find closest by gov_id
+    const govId = currentRun ? currentRun.gov_id : null;
+    const available = TRAJ_KEYS.filter(k => k !== REF_FAILURE && k !== REF_BEST);
+    const closeKey = available.find(k => govId && k.startsWith(govId));
+    if (closeKey) {
+      noteEl.textContent = `Closest available trajectory: "${TRAJ[closeKey].label}". Green = Market High (most robust), Red = governance failure (worst case).`;
+      selectedKey   = closeKey;
+      selectedLabel = TRAJ[closeKey].label;
+    } else {
+      noteEl.textContent = 'No trajectory available for selected config. Showing reference scenarios only. Green = Market High (most robust), Red = governance failure (worst case).';
+    }
+  }
+
+  const datasets = [];
+
+  // Selected / closest trajectory (blue, prominent)
+  if (selectedKey) {
+    const sel = TRAJ[selectedKey];
+    datasets.push({
+      label: sel.label,
+      data: sel.years.map((y,i) => ({x: y, y: sel.debris[i]})),
+      borderColor: '#60a5fa',
+      backgroundColor: 'transparent',
+      borderWidth: 2.5,
+      pointRadius: 0,
+      tension: 0.3,
+      order: 1,
+    });
+  }
+
+  // Best (green)
+  datasets.push({
+    label: best.label,
+    data: best.years.map((y,i) => ({x: y, y: best.debris[i]})),
+    borderColor: '#10b981',
+    backgroundColor: 'transparent',
+    borderWidth: 1.5,
+    borderDash: [],
+    pointRadius: 0,
+    tension: 0.3,
+    order: 2,
+  });
+
+  // Failure (red, dashed)
+  datasets.push({
+    label: failure.label,
+    data: failure.years.map((y,i) => ({x: y, y: failure.debris[i]})),
+    borderColor: '#ef4444',
+    backgroundColor: 'transparent',
+    borderWidth: 1.5,
+    pointRadius: 0,
+    tension: 0.3,
+    order: 3,
+  });
+
+  if (trajChart) {
+    trajChart.data.datasets = datasets;
+    trajChart.update('none');
+    return;
+  }
+
+  const ctx = document.getElementById('traj-chart').getContext('2d');
+  trajChart = new Chart(ctx, {
+    type: 'line',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 200 },
+      parsing: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'start',
+          labels: {
+            boxWidth: 24,
+            boxHeight: 2,
+            padding: 16,
+            font: { size: 11 },
+            color: '#7b93b8',
+          }
+        },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          backgroundColor: '#0d1322',
+          borderColor: '#1e2d4a',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#7b93b8',
+          callbacks: {
+            title: items => `Year ${Math.round(items[0].parsed.x)}`,
+            label: item => ` ${item.dataset.label.split('—')[0].trim()}: ${fmtNum(item.parsed.y)} debris`,
+          }
+        },
+        annotation: {
+          annotations: {
+            threshold: {
+              type: 'line',
+              yMin: 30000, yMax: 30000,
+              borderColor: '#f59e0b',
+              borderWidth: 1,
+              borderDash: [6,3],
+              label: {
+                display: true,
+                content: '30,000 capacity threshold',
+                color: '#f59e0b',
+                font: { size: 10 },
+                position: 'end',
+                backgroundColor: 'transparent',
+              }
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          min: 0, max: 100,
+          grid: { color: '#1e2d4a' },
+          ticks: { font: { size: 11 }, callback: v => 'Yr ' + v },
+          title: { display: true, text: 'Simulation year', font: { size: 11 } }
+        },
+        y: {
+          grid: { color: '#1e2d4a' },
+          ticks: { font: { size: 11 }, callback: v => fmtNum(v) },
+          title: { display: true, text: 'Total debris objects', font: { size: 11 } }
+        }
+      }
+    }
+  });
+}
+
+// ── Main update function ──────────────────────────────────────────────────
+function update() {
+  const pm         = parseFloat(document.getElementById('pm-slider').value);
+  const launch     = parseFloat(document.getElementById('launch-slider').value);
+  const behavior   = document.getElementById('behavior-toggle').checked;  // true = sluggish
+  const solar      = document.getElementById('solar-toggle').checked;     // true = variable
+  const alphaLog   = parseFloat(document.getElementById('alpha-slider').value);
+
+  // Update display values
+  document.getElementById('pm-val').textContent     = pm.toFixed(2);
+  document.getElementById('launch-val').textContent = launch.toFixed(1) + '×';
+  document.getElementById('alpha-val').innerHTML    = fmtAlpha(alphaLog);
+
+  const behLeft  = document.getElementById('beh-left-lbl');
+  const behRight = document.getElementById('beh-right-lbl');
+  behLeft.className  = 'toggle-label-left'  + (behavior ? '' : ' active');
+  behRight.className = 'toggle-label-right' + (behavior ? ' active' : '');
+
+  const atmLeft  = document.getElementById('atm-left-lbl');
+  const atmRight = document.getElementById('atm-right-lbl');
+  atmLeft.className  = 'toggle-label-left'  + (solar ? '' : ' active');
+  atmRight.className = 'toggle-label-right' + (solar ? ' active' : '');
+
+  // Find nearest run
+  const run = findNearest(pm, launch, behavior, solar, alphaLog);
+  if (!run) return;
+
+  updateResults(run);
+  buildRankingChart(run.gov_id);
+  buildTrajChart(run.run_id);
+}
+
+// ── Event listeners ───────────────────────────────────────────────────────
+['pm-slider','launch-slider','alpha-slider'].forEach(id => {
+  document.getElementById(id).addEventListener('input', update);
+});
+['behavior-toggle','solar-toggle'].forEach(id => {
+  document.getElementById(id).addEventListener('change', update);
+});
+
+// ── Initialize ────────────────────────────────────────────────────────────
+update();
+</script>
+</body>
+</html>
