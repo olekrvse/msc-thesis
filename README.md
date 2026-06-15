@@ -131,7 +131,7 @@ campaign dataset — open it directly in a browser (no server required).
 If you use this code or data, please cite:
 
 ```
-Ole KRuse (2026). Orbital Congestion Governance in LEO: A Robustness
+Ole Kruse (2026). Orbital Congestion Governance in LEO: A Robustness
 Analysis of Governance Categories under Uncertainty. MSc Thesis,
 Rotterdam School of Management, Erasmus University.
 ```
